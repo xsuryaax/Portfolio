@@ -1,0 +1,64 @@
+/* No imports needed here, handled by Google Fonts in HTML */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar to match Dark Theme */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Mobile Link Styles */
+/* Tag Bubbles for Capabilities */
+.tag-bubble {
+    padding: 10px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.02);
+}
+.tag-bubble:hover {
+    border-color: #d3f32c;
+    color: #d3f32c;
+    background: rgba(211, 243, 44, 0.05);
+}
+
+.mobile-link {
+    position: relative;
+    font-weight: 500;
+}
+.mobile-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background-color: #d3f32c;
+    transition: width 0.3s ease;
+}
+.mobile-link:hover::after {
+    width: 100%;
+}
