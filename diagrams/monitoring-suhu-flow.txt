@@ -1,0 +1,15 @@
+title Temperature & Humidity Monitoring
+
+actor "Unit Staff" as U
+participant "Monitoring App" as M
+database "db monitoring" as DB
+actor "Supervisor" as S
+
+U->M: record readings per monitoring point (date, time)
+M->DB: save log & value per parameter
+S->M: open dashboard (unit, location, period)
+M->DB: get readings & standard min-max
+note over M: flag readings outside standard
+M-->S: chart + list of out-of-standard readings
+S->M: export PDF report
+M-->S: PDF report

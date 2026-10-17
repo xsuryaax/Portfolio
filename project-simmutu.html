@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIMMUTU | Project Showcase</title>
+    <title>SIMMUTU | Case Study</title>
+    <meta name="description" content="Case study by Surya Permana: hospital quality indicator reporting, validation, analysis, and PDSA follow-up.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
@@ -26,6 +27,7 @@
             }
         }
     </script>
+    <link rel="stylesheet" href="css/case-study.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="bg-bgmain text-white font-body min-h-screen flex flex-col selection:bg-lime selection:text-black">
@@ -34,78 +36,86 @@
             <a href="index.html#projects" class="w-10 h-10 rounded-full bg-cardbg flex justify-center items-center hover:bg-white/10 transition-colors">
                 <i data-lucide="arrow-left" class="w-5 h-5 text-lime"></i>
             </a>
-            <span class="font-heading text-2xl tracking-widest uppercase mt-1">Project Demo Showcase</span>
+            <span class="font-heading text-2xl tracking-widest uppercase mt-1">Case Study</span>
         </div>
     </nav>
-    <main class="max-w-6xl mx-auto px-6 py-12 space-y-12 w-full">
-        <div class="space-y-4">
-            <h1 class="text-5xl md:text-7xl font-heading uppercase tracking-wide">SIMMUTU APP</h1>
-            <p class="text-textgray text-base md:text-lg max-w-3xl leading-relaxed">
-                A robust hospital quality indicator reporting system featuring automated SPM processing, continuous data tracking, and dynamic dashboards for healthcare services.
-            </p>
-        </div>
-        <!-- Gallery -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <img src="img/simmutu/simmutu1.webp" alt="Simmutu Image" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-            <img src="img/simmutu/simmutu2.webp" alt="Simmutu Image" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-            <img src="img/simmutu/simmutu3.webp" alt="Simmutu Image" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-            <img src="img/simmutu/simmutu4.webp" alt="Simmutu Image" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-            <img src="img/simmutu/simmutu5.webp" alt="Simmutu Image" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-            <img src="img/simmutu/simmutu6.webp" alt="Simmutu Image" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-            <img src="img/simmutu/simmutu7.webp" alt="Simmutu Image" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-            <img src="img/simmutu/simmutu8.webp" alt="Simmutu Image" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-            <img src="img/simmutu/simmutu9.webp" alt="Simmutu Image" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors md:col-span-2 md:w-2/3 md:mx-auto">
-        </div>
+
+    <main class="max-w-5xl mx-auto px-6 py-12 space-y-16 w-full cs">
+        <header class="space-y-6">
+            <span class="cs-tag">Hospital Quality &middot; Azra Hospital</span>
+            <h1 class="text-5xl md:text-7xl font-heading uppercase tracking-wide">SIMMUTU: Quality Indicator System</h1>
+            <p class="text-textgray text-base md:text-lg max-w-3xl leading-relaxed">A system for hospital units to report quality indicators, have them validated, analysed per period, and followed up with PDSA when a target is not achieved.</p>
+            <div class="cs-meta">
+                <div><span>Role</span>System design &amp; fullstack development</div>
+                <div><span>Context</span>Internship, Azra Hospital (Nov 2025 &ndash; May 2026)</div>
+                <div><span>Tech</span>Laravel, TailwindCSS, MySQL</div>
+                <div><span>Deliverables</span>Workflow, database design, roles &amp; access, application</div>
+            </div>
+        </header>
+
+        <section>
+            <h2><span>01</span>Context &amp; Problem</h2>
+            <p>Every hospital unit measures quality indicators each period, for example compliance or incident rates, and the hospital also reports Minimum Service Standards (SPM). Each indicator has its own target, which can be a minimum, a maximum, or a range.</p>
+            <p>The process involves several people: unit staff collect the data, a validator checks it, the quality team analyses the results, and indicators that miss their target need a documented improvement cycle. The system had to keep all of these steps, their status, and their history in one place.</p>
+        </section>
+
+        <section>
+            <h2><span>02</span>Users &amp; Roles</h2>
+            <div class="cs-table"><table><thead><tr><th>Role</th><th>Main responsibility</th></tr></thead><tbody><tr><td>Unit staff</td><td>Input numerator and denominator for each indicator, submit PDSA when assigned</td></tr><tr><td>Validator</td><td>Re-check unit reports and mark them valid or not valid</td></tr><tr><td>Quality team</td><td>Analyse results per period, assign and approve PDSA</td></tr><tr><td>Administrator</td><td>Manage indicator dictionary, units, periods, users, and access rights per role</td></tr></tbody></table></div>
+        </section>
+
+        <section>
+            <h2><span>03</span>Key Requirements</h2>
+            <ul>
+                <li><b>Flexible targets:</b> an indicator can target a higher value, a lower value, or stay within a range; the system decides <i>achieved / not achieved</i> automatically.</li>
+                <li><b>Target snapshot:</b> the target in force when data is entered is stored with the report, so changing a target later does not rewrite history.</li>
+                <li><b>Validation step:</b> validator values are kept separately from unit values, with a valid / not-valid status.</li>
+                <li><b>Follow-up:</b> unachieved indicators are assigned a PDSA (Plan-Do-Study-Act) per quarter with the states <i>assigned &rarr; submitted &rarr; revised &rarr; approved</i>.</li>
+                <li><b>Periods &amp; deadlines:</b> reporting periods can be opened and closed, with deadlines per unit.</li>
+                <li><b>Role-based access:</b> menu access configured per role, not hard-coded.</li>
+                <li><b>Reporting:</b> dashboards, charts per indicator, and PDF export of indicator profiles and PDSA.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><span>04</span>Design</h2>
+            <p>The main flow, from data entry to follow-up:</p>
+            <div class="cs-figs one"><figure><img src="img/simmutu/sequence.png" alt="Sequence: indicator reporting, validation, analysis, and PDSA follow-up"><figcaption>Sequence: indicator reporting, validation, analysis, and PDSA follow-up</figcaption></figure></div>
+            <h3>PDSA status</h3>
+            <div class="cs-flow"><span>ASSIGNED</span><i>&rarr;</i><span>SUBMITTED</span><i>&rarr;</i><span>REVISED</span><i>&rarr;</i><span>SUBMITTED</span><i>&rarr;</i><span class="ok">APPROVED</span></div>
+            <h3>Data model highlights</h3>
+            <ul>
+                <li><code>indikator</code> with target type (higher / lower / range) and min&ndash;max, linked to a unit and the indicator dictionary</li>
+                <li><code>laporan_dan_analis</code> stores numerator, denominator, value, achievement, and the target snapshot</li>
+                <li><code>laporan_validator</code> stores the validator's own values for the same report</li>
+                <li><code>pdsa_assignment</code> (indicator, unit, year, quarter, status) and <code>pdsa</code> (plan, do, study, action)</li>
+                <li>Separate SPM tables for Minimum Service Standard reporting</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><span>05</span>Key Decisions</h2>
+            <ul>
+                <li>Storing the target at the time of input instead of reading the current target, so past achievement stays correct.</li>
+                <li>Keeping validator data in its own table rather than overwriting unit data, so both versions can be compared.</li>
+                <li>Modelling PDSA as an assignment with a status, so the quality team can see at a glance which units still owe a follow-up.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><span>06</span>Screens</h2>
+            <div class="cs-gallery"><img src="img/simmutu/simmutu1.webp" alt="SIMMUTU screen" loading="lazy"><img src="img/simmutu/simmutu2.webp" alt="SIMMUTU screen" loading="lazy"><img src="img/simmutu/simmutu3.webp" alt="SIMMUTU screen" loading="lazy"><img src="img/simmutu/simmutu4.webp" alt="SIMMUTU screen" loading="lazy"><img src="img/simmutu/simmutu5.webp" alt="SIMMUTU screen" loading="lazy"><img src="img/simmutu/simmutu6.webp" alt="SIMMUTU screen" loading="lazy"><img src="img/simmutu/simmutu7.webp" alt="SIMMUTU screen" loading="lazy"><img src="img/simmutu/simmutu8.webp" alt="SIMMUTU screen" loading="lazy"><img src="img/simmutu/simmutu9.webp" alt="SIMMUTU screen" loading="lazy"></div>
+        </section>
+
+        <div class="cs-next"><a href="project-payment-integration.html">&larr; Payment Integration</a><a href="project-risk-register.html">Risk Register &rarr;</a></div>
     </main>
 
-    <!-- Lightbox Modal -->
     <div id="lightbox" class="fixed inset-0 bg-black/95 z-[100] hidden flex-col justify-center items-center p-4 md:p-8 backdrop-blur-md opacity-0 transition-opacity duration-300">
         <button id="closeLightbox" class="absolute top-6 right-6 text-white hover:text-lime transition-colors bg-white/10 p-2 rounded-full">
             <i data-lucide="x" class="w-6 h-6"></i>
         </button>
-        <img id="lightboxImg" src="" class="max-w-full max-h-full object-contain rounded-xl shadow-2xl transition-transform duration-300 scale-95 border border-white/10">
+        <img id="lightboxImg" src="" alt="" class="max-w-full max-h-full object-contain rounded-xl shadow-2xl transition-transform duration-300 scale-95 border border-white/10">
     </div>
-
-    <script>
-        lucide.createIcons();
-        
-        // Lightbox Logic
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightboxImg');
-        const closeLightbox = document.getElementById('closeLightbox');
-        const images = document.querySelectorAll('main img');
-
-        images.forEach(img => {
-            img.classList.add('cursor-zoom-in');
-            img.addEventListener('click', () => {
-                lightboxImg.src = img.src;
-                lightbox.classList.remove('hidden');
-                lightbox.classList.add('flex');
-                // Trigger reflow
-                void lightbox.offsetWidth;
-                lightbox.classList.remove('opacity-0');
-                lightboxImg.classList.remove('scale-95');
-                lightboxImg.classList.add('scale-100');
-            });
-        });
-
-        const close = () => {
-            lightbox.classList.add('opacity-0');
-            lightboxImg.classList.remove('scale-100');
-            lightboxImg.classList.add('scale-95');
-            setTimeout(() => {
-                lightbox.classList.add('hidden');
-                lightbox.classList.remove('flex');
-            }, 300);
-        };
-
-        closeLightbox.addEventListener('click', close);
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) close();
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) close();
-        });
-    </script>
+    <script src="js/lightbox.js"></script>
 </body>
 </html>

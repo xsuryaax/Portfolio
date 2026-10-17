@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monitoring Suhu | Project Showcase</title>
+    <title>Monitoring Suhu | Case Study</title>
+    <meta name="description" content="Case study by Surya Permana: temperature and humidity monitoring with out-of-standard detection for hospital units.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
@@ -19,13 +20,14 @@
                     colors: {
                         bgmain: '#0a0a0a',
                         cardbg: '#1a1a1a',
-                        lime: '#00f2fe',
+                        lime: '#d3f32c',
                         textgray: '#a3a3a3',
                     }
                 }
             }
         }
     </script>
+    <link rel="stylesheet" href="css/case-study.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="bg-bgmain text-white font-body min-h-screen flex flex-col selection:bg-lime selection:text-black">
@@ -34,77 +36,75 @@
             <a href="index.html#projects" class="w-10 h-10 rounded-full bg-cardbg flex justify-center items-center hover:bg-white/10 transition-colors">
                 <i data-lucide="arrow-left" class="w-5 h-5 text-lime"></i>
             </a>
-            <span class="font-heading text-2xl tracking-widest uppercase mt-1">Project Demo Showcase</span>
+            <span class="font-heading text-2xl tracking-widest uppercase mt-1">Case Study</span>
         </div>
     </nav>
-    <main class="max-w-6xl mx-auto px-6 py-12 space-y-12 w-full">
-        <div class="space-y-4">
-            <h1 class="text-5xl md:text-7xl font-heading uppercase tracking-wide">MONITORING SUHU</h1>
-            <p class="text-textgray text-base md:text-lg max-w-3xl leading-relaxed">
-                An IoT-based temperature and climate monitoring dashboard that provides real-time visualizations and alerting capabilities for hardware infrastructure.
-            </p>
-        </div>
-        <!-- Gallery -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <img src="img/monitoring-suhu/monitoring-suhu-1.webp" alt="Monitor Image" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors md:col-span-2">
-            <img src="img/monitoring-suhu/monitoring-suhu-2.webp" alt="Monitor Image" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-            <img src="img/monitoring-suhu/monitoring-suhu-3.webp" alt="Monitor Image" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-            <img src="img/monitoring-suhu/monitoring-suhu-4.webp" alt="Monitor Image" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-            <img src="img/monitoring-suhu/monitoring-suhu-5.webp" alt="Monitor Image" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-            <img src="img/monitoring-suhu/monitoring-suhu-6.webp" alt="Monitor Image" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-            <img src="img/monitoring-suhu/monitoring-suhu-7.webp" alt="Monitor Image" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-            <img src="img/monitoring-suhu/monitoring-suhu-8.webp" alt="Monitor Image" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-        </div>
+
+    <main class="max-w-5xl mx-auto px-6 py-12 space-y-16 w-full cs">
+        <header class="space-y-6">
+            <span class="cs-tag">Data Tracking &middot; Azra Hospital</span>
+            <h1 class="text-5xl md:text-7xl font-heading uppercase tracking-wide">Monitoring Suhu</h1>
+            <p class="text-textgray text-base md:text-lg max-w-3xl leading-relaxed">Recording temperature and humidity at monitoring points across hospital units, and flagging readings that fall outside the standard range.</p>
+            <div class="cs-meta">
+                <div><span>Role</span>System design &amp; fullstack development</div>
+                <div><span>Context</span>Internship, Azra Hospital (Nov 2025 &ndash; May 2026)</div>
+                <div><span>Tech</span>Laravel, PHP, MySQL</div>
+                <div><span>Deliverables</span>Data model, input flow, dashboard, PDF report</div>
+            </div>
+        </header>
+
+        <section>
+            <h2><span>01</span>Context &amp; Problem</h2>
+            <p>Rooms and storage areas in a hospital must stay within a set temperature and humidity range. Staff take readings at fixed monitoring points several times a day.</p>
+            <p>The system needed to make recording quick for staff and make it easy for supervisors to see, per unit and location, which readings were out of range.</p>
+        </section>
+
+        <section>
+            <h2><span>02</span>Key Requirements</h2>
+            <ul>
+                <li><b>Configurable parameters:</b> parameters (e.g. temperature, humidity) with unit of measure and standard min&ndash;max, managed as master data.</li>
+                <li><b>Monitoring points:</b> points belong to locations and units; each unit is set up with the parameters it must record.</li>
+                <li><b>Fast input:</b> readings entered per date and time, including inline entry from the table.</li>
+                <li><b>Out-of-standard detection:</b> the dashboard compares each reading with its standard and lists the ones outside the range.</li>
+                <li><b>Reporting:</b> charts per period and PDF export.</li>
+                <li><b>Role-based menu access.</b></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><span>03</span>Design</h2>
+            <div class="cs-figs one"><figure><img src="img/monitoring-suhu/sequence.png" alt="Sequence: recording readings and reviewing the dashboard"><figcaption>Sequence: recording readings and reviewing the dashboard</figcaption></figure></div>
+            <h3>Data model highlights</h3>
+            <ul>
+                <li><code>parameter_suhu</code> with unit and standard min&ndash;max</li>
+                <li><code>titik_pantau</code> and <code>master_lokasi</code>, linked to units</li>
+                <li><code>setting_unit_suhu</code> defines which parameters each unit / point must record</li>
+                <li><code>log_monitoring</code> (date, time, unit, point) with <code>detail_monitoring</code> holding one value per parameter</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><span>04</span>Key Decisions</h2>
+            <ul>
+                <li>One log with many detail values, so a new parameter can be added without changing the table structure.</li>
+                <li>Standards stored on the parameter, so the out-of-range rule is defined once and applied everywhere.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><span>05</span>Screens</h2>
+            <div class="cs-gallery"><img src="img/monitoring-suhu/monitoring-suhu-1.webp" alt="Monitoring Suhu screen" loading="lazy"><img src="img/monitoring-suhu/monitoring-suhu-2.webp" alt="Monitoring Suhu screen" loading="lazy"><img src="img/monitoring-suhu/monitoring-suhu-3.webp" alt="Monitoring Suhu screen" loading="lazy"><img src="img/monitoring-suhu/monitoring-suhu-4.webp" alt="Monitoring Suhu screen" loading="lazy"><img src="img/monitoring-suhu/monitoring-suhu-5.webp" alt="Monitoring Suhu screen" loading="lazy"><img src="img/monitoring-suhu/monitoring-suhu-6.webp" alt="Monitoring Suhu screen" loading="lazy"><img src="img/monitoring-suhu/monitoring-suhu-7.webp" alt="Monitoring Suhu screen" loading="lazy"><img src="img/monitoring-suhu/monitoring-suhu-8.webp" alt="Monitoring Suhu screen" loading="lazy"></div>
+        </section>
+
+        <div class="cs-next"><a href="project-risk-register.html">&larr; Risk Register</a><a href="project-ocean-space.html">Ocean Space &rarr;</a></div>
     </main>
 
-    <!-- Lightbox Modal -->
     <div id="lightbox" class="fixed inset-0 bg-black/95 z-[100] hidden flex-col justify-center items-center p-4 md:p-8 backdrop-blur-md opacity-0 transition-opacity duration-300">
         <button id="closeLightbox" class="absolute top-6 right-6 text-white hover:text-lime transition-colors bg-white/10 p-2 rounded-full">
             <i data-lucide="x" class="w-6 h-6"></i>
         </button>
-        <img id="lightboxImg" src="" class="max-w-full max-h-full object-contain rounded-xl shadow-2xl transition-transform duration-300 scale-95 border border-white/10">
+        <img id="lightboxImg" src="" alt="" class="max-w-full max-h-full object-contain rounded-xl shadow-2xl transition-transform duration-300 scale-95 border border-white/10">
     </div>
-
-    <script>
-        lucide.createIcons();
-        
-        // Lightbox Logic
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightboxImg');
-        const closeLightbox = document.getElementById('closeLightbox');
-        const images = document.querySelectorAll('main img');
-
-        images.forEach(img => {
-            img.classList.add('cursor-zoom-in');
-            img.addEventListener('click', () => {
-                lightboxImg.src = img.src;
-                lightbox.classList.remove('hidden');
-                lightbox.classList.add('flex');
-                // Trigger reflow
-                void lightbox.offsetWidth;
-                lightbox.classList.remove('opacity-0');
-                lightboxImg.classList.remove('scale-95');
-                lightboxImg.classList.add('scale-100');
-            });
-        });
-
-        const close = () => {
-            lightbox.classList.add('opacity-0');
-            lightboxImg.classList.remove('scale-100');
-            lightboxImg.classList.add('scale-95');
-            setTimeout(() => {
-                lightbox.classList.add('hidden');
-                lightbox.classList.remove('flex');
-            }, 300);
-        };
-
-        closeLightbox.addEventListener('click', close);
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) close();
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) close();
-        });
-    </script>
+    <script src="js/lightbox.js"></script>
 </body>
 </html>

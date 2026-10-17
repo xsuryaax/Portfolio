@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ocean Space | Project Showcase</title>
+    <title>Ocean Space | Case Study</title>
+    <meta name="description" content="Case study by Surya Permana: e-commerce for a fish business with Midtrans payment, designed with use case, activity, and class diagrams.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
@@ -26,6 +27,7 @@
             }
         }
     </script>
+    <link rel="stylesheet" href="css/case-study.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="bg-bgmain text-white font-body min-h-screen flex flex-col selection:bg-lime selection:text-black">
@@ -34,98 +36,72 @@
             <a href="index.html#projects" class="w-10 h-10 rounded-full bg-cardbg flex justify-center items-center hover:bg-white/10 transition-colors">
                 <i data-lucide="arrow-left" class="w-5 h-5 text-lime"></i>
             </a>
-            <span class="font-heading text-2xl tracking-widest uppercase mt-1">Project Demo Showcase</span>
+            <span class="font-heading text-2xl tracking-widest uppercase mt-1">Case Study</span>
         </div>
     </nav>
-    <main class="max-w-6xl mx-auto px-6 py-12 space-y-12 w-full">
-        <div class="space-y-4">
-            <h1 class="text-5xl md:text-7xl font-heading uppercase tracking-wide">OCEAN SPACE</h1>
-            <p class="text-textgray text-base md:text-lg max-w-3xl leading-relaxed">
-                A Laravel-based e-commerce platform built for my final thesis project. It features comprehensive product management, a secure shopping cart system, checkout flows, and digital payment integration.
-            </p>
-        </div>
-        <!-- Gallery -->
-        <div class="grid grid-cols-1 gap-8">
-            <img src="img/ocean-space/ocean_space.webp" alt="Ocean Space" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <img src="img/ocean-space/oceanspace1.webp" alt="Ocean Space" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-                <img src="img/ocean-space/oceanspace2.webp" alt="Ocean Space" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-                <img src="img/ocean-space/oceanspace3.webp" alt="Ocean Space" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-                <img src="img/ocean-space/oceanspace4.webp" alt="Ocean Space" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-            </div>
-        </div>
 
-        <!-- UML Diagrams -->
-        <div class="space-y-6 pt-6 border-t border-white/5">
-            <h2 class="text-3xl md:text-4xl font-heading uppercase tracking-wide">System UML Diagrams</h2>
-            <p class="text-textgray text-sm md:text-base max-w-3xl leading-relaxed">
-                The visual representation of the system architecture, detailing the use case flow, class structure, and dynamic activity diagrams for user order placement.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="space-y-2 group">
-                    <img src="img/ocean-space/use-case.webp" alt="Use Case Diagram" class="w-full h-64 md:h-80 object-contain bg-[#111] p-4 rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-                    <p class="text-xs md:text-sm font-semibold uppercase text-textgray group-hover:text-lime transition-colors tracking-wide text-center">Use Case Diagram</p>
-                </div>
-                <div class="space-y-2 group">
-                    <img src="img/ocean-space/class-diagram.webp" alt="Class Diagram" class="w-full h-64 md:h-80 object-contain bg-[#111] p-4 rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-                    <p class="text-xs md:text-sm font-semibold uppercase text-textgray group-hover:text-lime transition-colors tracking-wide text-center">Class Diagram</p>
-                </div>
-                <div class="space-y-2 group">
-                    <img src="img/ocean-space/activity-diagram-pemesanan.webp" alt="Activity Diagram" class="w-full h-64 md:h-80 object-contain bg-[#111] p-4 rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-                    <p class="text-xs md:text-sm font-semibold uppercase text-textgray group-hover:text-lime transition-colors tracking-wide text-center">Activity Diagram (User Order Flow)</p>
-                </div>
+    <main class="max-w-5xl mx-auto px-6 py-12 space-y-16 w-full cs">
+        <header class="space-y-6">
+            <span class="cs-tag">Final Thesis &middot; E-Commerce</span>
+            <h1 class="text-5xl md:text-7xl font-heading uppercase tracking-wide">Ocean Space</h1>
+            <p class="text-textgray text-base md:text-lg max-w-3xl leading-relaxed">An online store for an ornamental fish business, with catalogue, cart, checkout, Midtrans payment, and an admin side for products, orders, purchasing, and cashier.</p>
+            <div class="cs-meta">
+                <div><span>Role</span>Analysis, design &amp; fullstack development</div>
+                <div><span>Context</span>Final thesis, Gunadarma University</div>
+                <div><span>Tech</span>Laravel, MySQL, Midtrans</div>
+                <div><span>Deliverables</span>Use case, activity &amp; class diagrams, application</div>
             </div>
-        </div>
+        </header>
+
+        <section>
+            <h2><span>01</span>Context &amp; Problem</h2>
+            <p>A fish business selling online needed a store where customers can browse products, order, and pay digitally, while the owner manages products, incoming orders, stock purchasing, and in-store sales in the same system.</p>
+        </section>
+
+        <section>
+            <h2><span>02</span>Scope</h2>
+            <ul>
+                <li><b>Customer:</b> catalogue, product detail, cart, buy now, checkout, Midtrans payment, order history, invoice download.</li>
+                <li><b>Admin:</b> product management, order status updates, purchasing, cashier (in-store sales), attendance, and fees.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><span>03</span>Design</h2>
+            <div class="cs-figs"><figure><img src="img/ocean-space/use-case.webp" alt="Use case diagram"><figcaption>Use case diagram</figcaption></figure><figure><img src="img/ocean-space/activity-diagram-pemesanan.webp" alt="Activity diagram: customer ordering flow"><figcaption>Activity diagram: customer ordering flow</figcaption></figure><figure><img src="img/ocean-space/class-diagram.webp" alt="Class diagram"><figcaption>Class diagram</figcaption></figure></div>
+        </section>
+
+        <section>
+            <h2><span>04</span>Payment Flow</h2>
+            <p>Checkout creates an order, the customer pays through Midtrans, and Midtrans sends a notification that updates the order:</p>
+            <div class="cs-table"><table><thead><tr><th>Midtrans status</th><th>Payment status</th><th>Order status</th></tr></thead><tbody><tr><td>settlement</td><td>paid</td><td>pending (ready to process)</td></tr><tr><td>cancel / expire / deny</td><td>failed</td><td>cancelled</td></tr></tbody></table></div>
+        </section>
+
+        <section>
+            <h2><span>05</span>Looking Back</h2>
+            <p>Working on payment systems since then, I would design the notification handling more defensively:</p>
+            <ul>
+                <li>Verify the notification signature before trusting it.</li>
+                <li>Make the update idempotent so a repeated notification cannot change an order twice.</li>
+                <li>Check the transaction status with the provider when a notification does not arrive.</li>
+            </ul>
+            <p>These are the same principles I applied in the <a class="text-lime underline" href="project-payment-integration.html">payment integration case study</a>.</p>
+        </section>
+
+        <section>
+            <h2><span>06</span>Screens</h2>
+            <div class="cs-gallery"><img src="img/ocean-space/ocean_space.webp" alt="Ocean Space screen" loading="lazy"><img src="img/ocean-space/oceanspace1.webp" alt="Ocean Space screen" loading="lazy"><img src="img/ocean-space/oceanspace2.webp" alt="Ocean Space screen" loading="lazy"><img src="img/ocean-space/oceanspace3.webp" alt="Ocean Space screen" loading="lazy"><img src="img/ocean-space/oceanspace4.webp" alt="Ocean Space screen" loading="lazy"></div>
+        </section>
+
+        <div class="cs-next"><a href="project-monitoring-suhu.html">&larr; Monitoring Suhu</a><a href="project-sct-ecommerce.html">SCT E-Commerce &rarr;</a></div>
     </main>
 
-    <!-- Lightbox Modal -->
     <div id="lightbox" class="fixed inset-0 bg-black/95 z-[100] hidden flex-col justify-center items-center p-4 md:p-8 backdrop-blur-md opacity-0 transition-opacity duration-300">
         <button id="closeLightbox" class="absolute top-6 right-6 text-white hover:text-lime transition-colors bg-white/10 p-2 rounded-full">
             <i data-lucide="x" class="w-6 h-6"></i>
         </button>
-        <img id="lightboxImg" src="" class="max-w-full max-h-full object-contain rounded-xl shadow-2xl transition-transform duration-300 scale-95 border border-white/10">
+        <img id="lightboxImg" src="" alt="" class="max-w-full max-h-full object-contain rounded-xl shadow-2xl transition-transform duration-300 scale-95 border border-white/10">
     </div>
-
-    <script>
-        lucide.createIcons();
-        
-        // Lightbox Logic
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightboxImg');
-        const closeLightbox = document.getElementById('closeLightbox');
-        const images = document.querySelectorAll('main img');
-
-        images.forEach(img => {
-            img.classList.add('cursor-zoom-in');
-            img.addEventListener('click', () => {
-                lightboxImg.src = img.src;
-                lightbox.classList.remove('hidden');
-                lightbox.classList.add('flex');
-                // Trigger reflow
-                void lightbox.offsetWidth;
-                lightbox.classList.remove('opacity-0');
-                lightboxImg.classList.remove('scale-95');
-                lightboxImg.classList.add('scale-100');
-            });
-        });
-
-        const close = () => {
-            lightbox.classList.add('opacity-0');
-            lightboxImg.classList.remove('scale-100');
-            lightboxImg.classList.add('scale-95');
-            setTimeout(() => {
-                lightbox.classList.add('hidden');
-                lightbox.classList.remove('flex');
-            }, 300);
-        };
-
-        closeLightbox.addEventListener('click', close);
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) close();
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) close();
-        });
-    </script>
+    <script src="js/lightbox.js"></script>
 </body>
 </html>

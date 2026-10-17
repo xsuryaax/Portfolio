@@ -1,0 +1,22 @@
+title Virtual Account Payment (Concept)
+
+actor "Buyer" as B
+participant "Marketplace App" as APP
+participant "Payment Service" as PS
+database "db payment" as DB
+participant "Bank" as BK
+
+B->APP: choose Virtual Account
+APP->PS: req create payment (VA)
+PS->DB: save transaction (PENDING)
+PS->BK: req create VA number
+BK-->PS: res VA number
+PS-->APP: res VA number + expiry
+APP-->B: show VA number
+B->BK: transfer to VA
+BK->PS: req payment notification
+note over PS: check VA exists, amount matches,\nnot expired, not already paid
+PS->DB: update transaction (PAID)
+PS-->BK: res success
+PS->APP: notify order paid
+APP-->B: show payment success

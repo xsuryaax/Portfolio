@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Risk Register | Project Showcase</title>
+    <title>Risk Register | Case Study</title>
+    <meta name="description" content="Case study by Surya Permana: translating a hospital spreadsheet risk register into a four-stage risk management system.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
@@ -19,13 +20,14 @@
                     colors: {
                         bgmain: '#0a0a0a',
                         cardbg: '#1a1a1a',
-                        lime: '#00cc99',
+                        lime: '#d3f32c',
                         textgray: '#a3a3a3',
                     }
                 }
             }
         }
     </script>
+    <link rel="stylesheet" href="css/case-study.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="bg-bgmain text-white font-body min-h-screen flex flex-col selection:bg-lime selection:text-black">
@@ -34,76 +36,68 @@
             <a href="index.html#projects" class="w-10 h-10 rounded-full bg-cardbg flex justify-center items-center hover:bg-white/10 transition-colors">
                 <i data-lucide="arrow-left" class="w-5 h-5 text-lime"></i>
             </a>
-            <span class="font-heading text-2xl tracking-widest uppercase mt-1">Project Demo Showcase</span>
+            <span class="font-heading text-2xl tracking-widest uppercase mt-1">Case Study</span>
         </div>
     </nav>
-    <main class="max-w-6xl mx-auto px-6 py-12 space-y-12 w-full">
-        <div class="space-y-4">
-            <h1 class="text-5xl md:text-7xl font-heading uppercase tracking-wide">RISK REGISTER</h1>
-            <p class="text-textgray text-base md:text-lg max-w-3xl leading-relaxed">
-                A comprehensive hospital risk management system featuring identification, analysis, evaluation, and monitoring modules designed to enhance patient safety and operational efficiency.
-            </p>
-        </div>
-        <!-- Gallery -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <img src="img/Risk-Register/1.webp" alt="Risk Register Image" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors md:col-span-2">
-            <img src="img/Risk-Register/2.webp" alt="Risk Register Image" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-            <img src="img/Risk-Register/3.webp" alt="Risk Register Image" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-            <img src="img/Risk-Register/4.webp" alt="Risk Register Image" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-            <img src="img/Risk-Register/5.webp" alt="Risk Register Image" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-            <img src="img/Risk-Register/6.webp" alt="Risk Register Image" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-            <img src="img/Risk-Register/7.webp" alt="Risk Register Image" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-        </div>
+
+    <main class="max-w-5xl mx-auto px-6 py-12 space-y-16 w-full cs">
+        <header class="space-y-6">
+            <span class="cs-tag">Risk Management &middot; Azra Hospital</span>
+            <h1 class="text-5xl md:text-7xl font-heading uppercase tracking-wide">Risk Register</h1>
+            <p class="text-textgray text-base md:text-lg max-w-3xl leading-relaxed">Turning the hospital's spreadsheet-based risk register into a system that follows the full risk cycle: identification, analysis, treatment planning, and evaluation.</p>
+            <div class="cs-meta">
+                <div><span>Role</span>System design &amp; fullstack development</div>
+                <div><span>Context</span>Internship, Azra Hospital (Nov 2025 &ndash; May 2026)</div>
+                <div><span>Tech</span>Laravel, MySQL, PHP</div>
+                <div><span>Deliverables</span>Process mapping from spreadsheet, database design, application, PDF reports</div>
+            </div>
+        </header>
+
+        <section>
+            <h2><span>01</span>Context &amp; Problem</h2>
+            <p>Each unit kept its risk register in a large spreadsheet with many columns: activity, objective, risk statement, cause, existing controls, probability, impact, risk level, treatment plan, schedule, owner, and person in charge of follow-up.</p>
+            <p>My task was to translate that spreadsheet into a structured system: separate the steps that happen at different times, keep the scoring consistent across units, and produce the same register as a report.</p>
+        </section>
+
+        <section>
+            <h2><span>02</span>Analysis: from spreadsheet to process</h2>
+            <p>The spreadsheet mixes four activities that are done at different moments. I split them into four stages, each with its own screen and table:</p>
+            <div class="cs-table"><table><thead><tr><th>Stage</th><th>What is recorded</th><th>Output</th></tr></thead><tbody><tr><td>1. Identification</td><td>Activity, objective, risk statement, cause, impact, category, scope, controllable / uncontrollable</td><td>Risk with a code, per period</td></tr><tr><td>2. Analysis</td><td>Existing control (description, design, effectiveness), probability, impact</td><td>Risk score and rank</td></tr><tr><td>3. Adequacy &amp; treatment</td><td>Treatment plan, schedule, person in charge</td><td>Action plan</td></tr><tr><td>4. Evaluation</td><td>Residual probability and impact, incidents</td><td>Residual score, % risk reduction</td></tr></tbody></table></div>
+        </section>
+
+        <section>
+            <h2><span>03</span>Key Requirements</h2>
+            <ul>
+                <li><b>Consistent scoring:</b> probability and impact come from master tables (value, colour, impact description per area), so every unit scores risk the same way.</li>
+                <li><b>Risk library:</b> units can copy common risks from a library instead of typing them again.</li>
+                <li><b>Periods:</b> risks belong to a period and quarter; reporting frequency is recorded per risk.</li>
+                <li><b>Role-based access</b> per menu, managed by an administrator.</li>
+                <li><b>Reports:</b> risk register, adequacy analysis, evaluation, and a single-risk profile exported to PDF.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><span>04</span>Design</h2>
+            <div class="cs-figs one"><figure><img src="img/Risk-Register/sequence.png" alt="Sequence: risk register cycle from identification to evaluation"><figcaption>Sequence: risk register cycle from identification to evaluation</figcaption></figure></div>
+            <h3>Scoring</h3>
+            <div class="cs-flow"><span>probability</span><i>&times;</i><span>impact</span><i>=</i><span class="ok">risk score &rarr; rank</span></div>
+            <p>After treatment, the same calculation with residual probability and impact gives the residual score, and the system shows the percentage of risk reduction.</p>
+        </section>
+
+        <section>
+            <h2><span>05</span>Screens</h2>
+            <div class="cs-gallery"><img src="img/Risk-Register/1.webp" alt="Risk Register screen" loading="lazy"><img src="img/Risk-Register/2.webp" alt="Risk Register screen" loading="lazy"><img src="img/Risk-Register/3.webp" alt="Risk Register screen" loading="lazy"><img src="img/Risk-Register/4.webp" alt="Risk Register screen" loading="lazy"><img src="img/Risk-Register/5.webp" alt="Risk Register screen" loading="lazy"><img src="img/Risk-Register/6.webp" alt="Risk Register screen" loading="lazy"><img src="img/Risk-Register/7.webp" alt="Risk Register screen" loading="lazy"></div>
+        </section>
+
+        <div class="cs-next"><a href="project-simmutu.html">&larr; SIMMUTU</a><a href="project-monitoring-suhu.html">Monitoring Suhu &rarr;</a></div>
     </main>
 
-    <!-- Lightbox Modal -->
     <div id="lightbox" class="fixed inset-0 bg-black/95 z-[100] hidden flex-col justify-center items-center p-4 md:p-8 backdrop-blur-md opacity-0 transition-opacity duration-300">
         <button id="closeLightbox" class="absolute top-6 right-6 text-white hover:text-lime transition-colors bg-white/10 p-2 rounded-full">
             <i data-lucide="x" class="w-6 h-6"></i>
         </button>
-        <img id="lightboxImg" src="" class="max-w-full max-h-full object-contain rounded-xl shadow-2xl transition-transform duration-300 scale-95 border border-white/10">
+        <img id="lightboxImg" src="" alt="" class="max-w-full max-h-full object-contain rounded-xl shadow-2xl transition-transform duration-300 scale-95 border border-white/10">
     </div>
-
-    <script>
-        lucide.createIcons();
-        
-        // Lightbox Logic
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightboxImg');
-        const closeLightbox = document.getElementById('closeLightbox');
-        const images = document.querySelectorAll('main img');
-
-        images.forEach(img => {
-            img.classList.add('cursor-zoom-in');
-            img.addEventListener('click', () => {
-                lightboxImg.src = img.src;
-                lightbox.classList.remove('hidden');
-                lightbox.classList.add('flex');
-                // Trigger reflow
-                void lightbox.offsetWidth;
-                lightbox.classList.remove('opacity-0');
-                lightboxImg.classList.remove('scale-95');
-                lightboxImg.classList.add('scale-100');
-            });
-        });
-
-        const close = () => {
-            lightbox.classList.add('opacity-0');
-            lightboxImg.classList.remove('scale-100');
-            lightboxImg.classList.add('scale-95');
-            setTimeout(() => {
-                lightbox.classList.add('hidden');
-                lightbox.classList.remove('flex');
-            }, 300);
-        };
-
-        closeLightbox.addEventListener('click', close);
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) close();
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) close();
-        });
-    </script>
+    <script src="js/lightbox.js"></script>
 </body>
 </html>

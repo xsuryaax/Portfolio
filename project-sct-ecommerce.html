@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCT E-Commerce | Project Showcase</title>
+    <title>SCT E-Commerce | Case Study</title>
+    <meta name="description" content="Case study by Surya Permana: B2B e-commerce designed with use case, class, and sequence diagrams.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
@@ -26,6 +27,7 @@
             }
         }
     </script>
+    <link rel="stylesheet" href="css/case-study.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="bg-bgmain text-white font-body min-h-screen flex flex-col selection:bg-lime selection:text-black">
@@ -34,93 +36,48 @@
             <a href="index.html#projects" class="w-10 h-10 rounded-full bg-cardbg flex justify-center items-center hover:bg-white/10 transition-colors">
                 <i data-lucide="arrow-left" class="w-5 h-5 text-lime"></i>
             </a>
-            <span class="font-heading text-2xl tracking-widest uppercase mt-1">Project Demo Showcase</span>
+            <span class="font-heading text-2xl tracking-widest uppercase mt-1">Case Study</span>
         </div>
     </nav>
-    <main class="max-w-6xl mx-auto px-6 py-12 space-y-12 w-full">
-        <div class="space-y-4">
-            <h1 class="text-5xl md:text-7xl font-heading uppercase tracking-wide">SCT E-COMMERCE</h1>
-            <p class="text-textgray text-base md:text-lg max-w-3xl leading-relaxed">
-                A customized B2B e-commerce website built for PT Surya Citra Teknologi. The platform focuses on robust product management and streamlined checkout systems tailored for commercial needs.
-            </p>
-        </div>
-        <!-- Gallery -->
-        <div class="grid grid-cols-1 gap-8">
-            <img src="img/sct-ecommerce/sctecommerce1.webp" alt="SCT E-Commerce" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-            <img src="img/sct-ecommerce/sctecommerce2.webp" alt="SCT E-Commerce" class="w-full h-auto rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-        </div>
 
-        <!-- UML Diagrams -->
-        <div class="space-y-6 pt-6 border-t border-white/5">
-            <h2 class="text-3xl md:text-4xl font-heading uppercase tracking-wide">System UML Diagrams</h2>
-            <p class="text-textgray text-sm md:text-base max-w-3xl leading-relaxed">
-                The visual representation of the system architecture, detailing the use case flow, class structure, and core execution sequences.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="space-y-2 group">
-                    <img src="img/sct-ecommerce/use-case.webp" alt="Use Case Diagram" class="w-full h-64 md:h-80 object-contain bg-[#111] p-4 rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-                    <p class="text-xs md:text-sm font-semibold uppercase text-textgray group-hover:text-lime transition-colors tracking-wide text-center">Use Case Diagram</p>
-                </div>
-                <div class="space-y-2 group">
-                    <img src="img/sct-ecommerce/class-diagram.webp" alt="Class Diagram" class="w-full h-64 md:h-80 object-contain bg-[#111] p-4 rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-                    <p class="text-xs md:text-sm font-semibold uppercase text-textgray group-hover:text-lime transition-colors tracking-wide text-center">Class Diagram</p>
-                </div>
-                <div class="space-y-2 group">
-                    <img src="img/sct-ecommerce/sequence-login.webp" alt="Sequence Diagram" class="w-full h-64 md:h-80 object-contain bg-[#111] p-4 rounded-xl border border-white/10 hover:border-lime/30 transition-colors">
-                    <p class="text-xs md:text-sm font-semibold uppercase text-textgray group-hover:text-lime transition-colors tracking-wide text-center">Sequence Diagram</p>
-                </div>
+    <main class="max-w-5xl mx-auto px-6 py-12 space-y-16 w-full cs">
+        <header class="space-y-6">
+            <span class="cs-tag">Client Work &middot; B2B E-Commerce</span>
+            <h1 class="text-5xl md:text-7xl font-heading uppercase tracking-wide">SCT E-Commerce</h1>
+            <p class="text-textgray text-base md:text-lg max-w-3xl leading-relaxed">A B2B e-commerce website for PT Surya Citra Teknologi, focused on product management, checkout, and online payment.</p>
+            <div class="cs-meta">
+                <div><span>Role</span>System design &amp; backend development</div>
+                <div><span>Context</span>Client project</div>
+                <div><span>Tech</span>Laravel, PHP, MySQL</div>
+                <div><span>Deliverables</span>Use case, class &amp; sequence diagrams, backend</div>
             </div>
-        </div>
+        </header>
+
+        <section>
+            <h2><span>01</span>Context</h2>
+            <p>A business-to-business store where the client manages its product catalogue and customers place orders and pay online.</p>
+        </section>
+
+        <section>
+            <h2><span>02</span>Design</h2>
+            <p>Before building, I mapped the actors and their goals, the data structure, and the main interactions:</p>
+            <div class="cs-figs"><figure><img src="img/sct-ecommerce/use-case.webp" alt="Use case diagram"><figcaption>Use case diagram</figcaption></figure><figure><img src="img/sct-ecommerce/class-diagram.webp" alt="Class diagram"><figcaption>Class diagram</figcaption></figure><figure><img src="img/sct-ecommerce/sequence-login.webp" alt="Sequence diagram: login"><figcaption>Sequence diagram: login</figcaption></figure></div>
+        </section>
+
+        <section>
+            <h2><span>03</span>Screens</h2>
+            <div class="cs-gallery"><img src="img/sct-ecommerce/sctecommerce1.webp" alt="SCT E-Commerce screen" loading="lazy"><img src="img/sct-ecommerce/sctecommerce2.webp" alt="SCT E-Commerce screen" loading="lazy"></div>
+        </section>
+
+        <div class="cs-next"><a href="project-ocean-space.html">&larr; Ocean Space</a><span></span></div>
     </main>
 
-    <!-- Lightbox Modal -->
     <div id="lightbox" class="fixed inset-0 bg-black/95 z-[100] hidden flex-col justify-center items-center p-4 md:p-8 backdrop-blur-md opacity-0 transition-opacity duration-300">
         <button id="closeLightbox" class="absolute top-6 right-6 text-white hover:text-lime transition-colors bg-white/10 p-2 rounded-full">
             <i data-lucide="x" class="w-6 h-6"></i>
         </button>
-        <img id="lightboxImg" src="" class="max-w-full max-h-full object-contain rounded-xl shadow-2xl transition-transform duration-300 scale-95 border border-white/10">
+        <img id="lightboxImg" src="" alt="" class="max-w-full max-h-full object-contain rounded-xl shadow-2xl transition-transform duration-300 scale-95 border border-white/10">
     </div>
-
-    <script>
-        lucide.createIcons();
-        
-        // Lightbox Logic
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightboxImg');
-        const closeLightbox = document.getElementById('closeLightbox');
-        const images = document.querySelectorAll('main img');
-
-        images.forEach(img => {
-            img.classList.add('cursor-zoom-in');
-            img.addEventListener('click', () => {
-                lightboxImg.src = img.src;
-                lightbox.classList.remove('hidden');
-                lightbox.classList.add('flex');
-                // Trigger reflow
-                void lightbox.offsetWidth;
-                lightbox.classList.remove('opacity-0');
-                lightboxImg.classList.remove('scale-95');
-                lightboxImg.classList.add('scale-100');
-            });
-        });
-
-        const close = () => {
-            lightbox.classList.add('opacity-0');
-            lightboxImg.classList.remove('scale-100');
-            lightboxImg.classList.add('scale-95');
-            setTimeout(() => {
-                lightbox.classList.add('hidden');
-                lightbox.classList.remove('flex');
-            }, 300);
-        };
-
-        closeLightbox.addEventListener('click', close);
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) close();
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) close();
-        });
-    </script>
+    <script src="js/lightbox.js"></script>
 </body>
 </html>

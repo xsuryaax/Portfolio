@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Integration (QRIS &amp; VA) | Case Study</title>
+    <meta name="description" content="Concept case study by Surya Permana: requirements, sequence diagrams, API specification, and test scenarios for QRIS and Virtual Account payment integration.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['"Bebas Neue"', 'sans-serif'],
+                        body: ['"Manrope"', 'sans-serif'],
+                    },
+                    colors: {
+                        bgmain: '#0a0a0a',
+                        cardbg: '#1a1a1a',
+                        lime: '#d3f32c',
+                        textgray: '#a3a3a3',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/case-study.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-bgmain text-white font-body min-h-screen flex flex-col selection:bg-lime selection:text-black">
+    <nav class="w-full py-6 px-8 md:px-16 flex justify-between items-center bg-bgmain border-b border-white/5 sticky top-0 z-50">
+        <div class="flex items-center gap-6">
+            <a href="index.html#projects" class="w-10 h-10 rounded-full bg-cardbg flex justify-center items-center hover:bg-white/10 transition-colors">
+                <i data-lucide="arrow-left" class="w-5 h-5 text-lime"></i>
+            </a>
+            <span class="font-heading text-2xl tracking-widest uppercase mt-1">Case Study</span>
+        </div>
+    </nav>
+
+    <main class="max-w-5xl mx-auto px-6 py-12 space-y-16 w-full cs">
+        <header class="space-y-6">
+            <span class="cs-tag">Concept Case Study &middot; Fintech</span>
+            <h1 class="text-5xl md:text-7xl font-heading uppercase tracking-wide">Payment Integration: QRIS &amp; Virtual Account</h1>
+            <p class="text-textgray text-base md:text-lg max-w-3xl leading-relaxed">
+                Replacing manual bank-transfer confirmation in a marketplace with automated QRIS and Virtual Account payments, from requirements to API specification and test scenarios.
+            </p>
+            <div class="cs-meta">
+                <div><span>Role</span>System Analyst</div>
+                <div><span>Deliverables</span>Requirements, sequence diagrams, API spec, test scenarios</div>
+                <div><span>Tools</span>sequencediagram.org, Draw.io, Postman</div>
+                <div><span>Type</span>Concept / self-initiated</div>
+            </div>
+            <p class="cs-note">PasarKita is a fictional company. This case was written to show how I analyse a payment integration; it does not use any employer or partner material.</p>
+        </header>
+
+        <section>
+            <h2><span>01</span>Context &amp; Problem</h2>
+            <p>PasarKita is a marketplace for small businesses. Buyers pay by manual bank transfer, upload a transfer receipt, and an admin checks each receipt against the bank statement before the order is processed.</p>
+            <ul>
+                <li>Orders wait hours, sometimes overnight, for an admin to confirm the payment.</li>
+                <li>Buyers transfer the wrong amount or forget to upload the receipt, so admins chase them one by one.</li>
+                <li>Finance has no single place to see which orders are paid, pending, or expired.</li>
+            </ul>
+            <p><b>Goal:</b> buyers pay with QRIS or a Virtual Account and the order status changes to <b>Paid</b> automatically, without admin involvement.</p>
+        </section>
+
+        <section>
+            <h2><span>02</span>Scope</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="cs-box"><h3>In scope</h3><ul>
+                    <li>Payment Service between Marketplace App and payment providers</li>
+                    <li>QRIS (dynamic QR per order) and Virtual Account</li>
+                    <li>Payment callback / notification handling</li>
+                    <li>Status check when a callback does not arrive</li>
+                    <li>Daily reconciliation report for Finance</li>
+                </ul></div>
+                <div class="cs-box"><h3>Out of scope</h3><ul>
+                    <li>Refunds and partial payments</li>
+                    <li>Card payments</li>
+                    <li>Seller settlement / payout</li>
+                </ul></div>
+            </div>
+        </section>
+
+        <section>
+            <h2><span>03</span>Requirements</h2>
+            <h3>Functional</h3>
+            <div class="cs-table"><table>
+                <thead><tr><th>ID</th><th>Requirement</th><th>Priority</th></tr></thead>
+                <tbody>
+                    <tr><td>FR-01</td><td>Buyer can choose QRIS or Virtual Account at checkout.</td><td>Must</td></tr>
+                    <tr><td>FR-02</td><td>System creates one payment per order with an amount equal to the order total and an expiry time.</td><td>Must</td></tr>
+                    <tr><td>FR-03</td><td>System shows the QR or VA number together with the amount and expiry countdown.</td><td>Must</td></tr>
+                    <tr><td>FR-04</td><td>System updates the order to Paid when the provider confirms payment.</td><td>Must</td></tr>
+                    <tr><td>FR-05</td><td>If no confirmation arrives before expiry, system checks the status with the provider before marking the payment Expired.</td><td>Must</td></tr>
+                    <tr><td>FR-06</td><td>Finance can download a daily list of payments and their status for reconciliation.</td><td>Should</td></tr>
+                </tbody>
+            </table></div>
+            <h3>Non-functional</h3>
+            <ul>
+                <li><b>Idempotent:</b> a duplicate callback must not change a payment twice.</li>
+                <li><b>Verified:</b> every callback is verified (signature) before it is trusted.</li>
+                <li><b>Consistent amount:</b> a notification whose amount differs from the payment is rejected and logged.</li>
+                <li><b>Secure:</b> provider credentials stored in environment / vault, sensitive data masked in logs.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><span>04</span>Design</h2>
+            <p>The Marketplace App never talks to providers directly. A single Payment Service owns the transaction record and the provider integration, so adding a new method later does not touch the app.</p>
+            <div class="cs-figs">
+                <figure><img src="img/payment/payment-qris.png" alt="QRIS payment sequence diagram"><figcaption>Sequence: QRIS checkout, including status check when the callback is missing</figcaption></figure>
+                <figure><img src="img/payment/payment-va.png" alt="Virtual Account payment sequence diagram"><figcaption>Sequence: Virtual Account payment notification</figcaption></figure>
+            </div>
+            <h3>Payment status</h3>
+            <div class="cs-flow"><span>PENDING</span><i>&rarr;</i><span class="ok">PAID</span><i>or</i><span class="bad">EXPIRED</span><i>or</i><span class="bad">FAILED</span></div>
+            <p class="text-sm">A payment only moves forward. Once it is PAID, EXPIRED, or FAILED it never changes again, which is what makes duplicate callbacks safe.</p>
+        </section>
+
+        <section>
+            <h2><span>05</span>API Specification</h2>
+            <h3>Create Payment &mdash; <code>POST /payment/create</code></h3>
+            <div class="cs-table"><table>
+                <thead><tr><th>Type</th><th>Field</th><th>Req</th><th>Description</th></tr></thead>
+                <tbody>
+                    <tr><td>String</td><td>orderId</td><td>M</td><td>Marketplace order number, unique per payment</td></tr>
+                    <tr><td>Number</td><td>amount</td><td>M</td><td>Order total in IDR, no decimals</td></tr>
+                    <tr><td>String</td><td>method</td><td>M</td><td><code>QRIS</code> or <code>VA</code></td></tr>
+                    <tr><td>String</td><td>bankCode</td><td>C</td><td>Required when method is <code>VA</code></td></tr>
+                    <tr><td>Object</td><td>customer</td><td>M</td><td>Name, email, phone</td></tr>
+                </tbody>
+            </table></div>
+            <pre class="cs-code">{
+  "paymentId": "PAY-20261018-000123",
+  "orderId": "PK-88412",
+  "status": "PENDING",
+  "method": "QRIS",
+  "qrString": "00020101021226...6304A1B2",
+  "amount": 150000,
+  "expiredAt": "2026-10-18T10:15:00+07:00"
+}</pre>
+            <h3>Payment Callback &mdash; <code>POST /payment/callback</code></h3>
+            <div class="cs-table"><table>
+                <thead><tr><th>Type</th><th>Field</th><th>Req</th><th>Description</th></tr></thead>
+                <tbody>
+                    <tr><td>String</td><td>paymentId</td><td>M</td><td>Payment reference from Create Payment</td></tr>
+                    <tr><td>String</td><td>status</td><td>M</td><td><code>PAID</code> or <code>FAILED</code></td></tr>
+                    <tr><td>Number</td><td>paidAmount</td><td>M</td><td>Must equal the payment amount</td></tr>
+                    <tr><td>String</td><td>paidAt</td><td>M</td><td>ISO 8601 timestamp</td></tr>
+                    <tr><td>String</td><td>signature</td><td>M</td><td>Verified before the callback is processed</td></tr>
+                </tbody>
+            </table></div>
+            <h3>Check Status &mdash; <code>GET /payment/status/{paymentId}</code></h3>
+            <p class="text-sm">Returns the latest status. If the payment is still PENDING after expiry, the Payment Service asks the provider first, then stores and returns the final status.</p>
+        </section>
+
+        <section>
+            <h2><span>06</span>Test Scenarios</h2>
+            <div class="cs-table"><table>
+                <thead><tr><th>No</th><th>Scenario</th><th>Expected Result</th></tr></thead>
+                <tbody>
+                    <tr><td>1</td><td>Pay QRIS with the exact amount before expiry</td><td>Callback received, order becomes Paid</td></tr>
+                    <tr><td>2</td><td>Pay to VA with the exact amount</td><td>Notification accepted, order becomes Paid</td></tr>
+                    <tr><td>3</td><td>Same callback sent twice</td><td>Second callback acknowledged, payment not changed again</td></tr>
+                    <tr><td>4</td><td>Callback with invalid signature</td><td>Rejected and logged, payment stays Pending</td></tr>
+                    <tr><td>5</td><td>VA notification with a different amount</td><td>Rejected, payment stays Pending</td></tr>
+                    <tr><td>6</td><td>Buyer pays but callback never arrives</td><td>Status check after expiry finds Paid, order becomes Paid</td></tr>
+                    <tr><td>7</td><td>Buyer does not pay before expiry</td><td>Status check confirms unpaid, payment becomes Expired</td></tr>
+                    <tr><td>8</td><td>Daily reconciliation report</td><td>Every payment of the day listed once with its final status</td></tr>
+                </tbody>
+            </table></div>
+        </section>
+
+        <section>
+            <h2><span>07</span>Risks &amp; Mitigation</h2>
+            <div class="cs-table"><table>
+                <thead><tr><th>Risk</th><th>Impact</th><th>Mitigation</th></tr></thead>
+                <tbody>
+                    <tr><td>Callback lost or delayed</td><td>Buyer paid but order still Pending</td><td>Status check at expiry and on buyer request; daily reconciliation</td></tr>
+                    <tr><td>Duplicate or forged callback</td><td>Order marked Paid twice or without payment</td><td>Signature verification, idempotent update, forward-only status</td></tr>
+                    <tr><td>Provider downtime</td><td>Buyers cannot create payments</td><td>Timeouts and clear error message; buyer can switch method</td></tr>
+                </tbody>
+            </table></div>
+        </section>
+
+        <div class="cs-next"><span></span><a href="project-simmutu.html">SIMMUTU &rarr;</a></div>
+    </main>
+
+    <div id="lightbox" class="fixed inset-0 bg-black/95 z-[100] hidden flex-col justify-center items-center p-4 md:p-8 backdrop-blur-md opacity-0 transition-opacity duration-300">
+        <button id="closeLightbox" class="absolute top-6 right-6 text-white hover:text-lime transition-colors bg-white/10 p-2 rounded-full">
+            <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+        <img id="lightboxImg" src="" alt="" class="max-w-full max-h-full object-contain rounded-xl shadow-2xl transition-transform duration-300 scale-95 border border-white/10 bg-white">
+    </div>
+    <script src="js/lightbox.js"></script>
+</body>
+</html>

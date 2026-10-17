@@ -1,0 +1,29 @@
+title QRIS Checkout Payment (Concept)
+
+actor "Buyer" as B
+participant "Marketplace App" as APP
+participant "Payment Service" as PS
+database "db payment" as DB
+participant "Payment Gateway" as PG
+
+B->APP: checkout order
+APP->PS: req create payment (QRIS)
+PS->DB: save transaction (PENDING)
+PS->PG: req generate QR
+PG-->PS: res QR string + expiry
+PS-->APP: res QR + expiry
+APP-->B: show QR
+B->PG: scan & pay (e-wallet / m-banking)
+PG->PS: callback payment result
+note over PS: verify signature,\nreject duplicate callback (idempotent)
+PS->DB: update transaction (PAID)
+PS-->PG: res ack
+PS->APP: notify order paid
+APP-->B: show payment success
+alt no callback before expiry
+APP->PS: req check status
+PS->PG: req inquiry status
+PG-->PS: res status
+PS->DB: update transaction (PAID / EXPIRED)
+PS-->APP: res final status
+end

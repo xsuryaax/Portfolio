@@ -1,0 +1,20 @@
+title Hospital Risk Register Cycle
+
+actor "Unit" as U
+participant "Risk Register" as R
+database "db risk" as DB
+actor "Quality Team" as Q
+
+U->R: identify risk (activity, cause, impact, category)
+note over R: or copy from risk library
+R->DB: save risk with code & period
+U->R: analyse existing control, probability, impact
+note over R: score = probability x impact\n-> risk rank
+R->DB: save score & rank
+U->R: plan treatment (action, schedule, PIC)
+R->DB: save treatment plan
+U->R: evaluate residual probability & impact
+note over R: residual score,\n% risk reduction
+R->DB: save evaluation
+Q->R: view risk register, export PDF
+R-->Q: risk register report

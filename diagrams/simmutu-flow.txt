@@ -1,0 +1,28 @@
+title Quality Indicator Reporting & PDSA Follow-up (SIMMUTU)
+
+actor "Unit Staff" as U
+participant "SIMMUTU" as S
+database "db simmutu" as DB
+actor "Validator" as V
+actor "Quality Team" as Q
+
+U->S: input numerator & denominator per indicator
+note over S: calculate value, compare with\ntarget (higher, lower, or range)
+S->DB: save report (achieved / not achieved)
+V->S: review unit report
+S->DB: save validator value & status (valid / not valid)
+Q->S: analyse indicator per period
+S->DB: save analysis & follow-up
+alt indicator not achieved
+Q->S: assign PDSA to unit (per quarter)
+S->DB: PDSA status: assigned
+U->S: submit Plan-Do-Study-Act
+S->DB: status: submitted
+opt revision needed
+Q->S: request revision
+S->DB: status: revised
+U->S: resubmit PDSA
+end
+Q->S: approve PDSA
+S->DB: status: approved
+end
