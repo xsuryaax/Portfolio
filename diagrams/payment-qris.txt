@@ -1,29 +1,29 @@
-title QRIS Checkout Payment (Concept)
+title Pembayaran Checkout QRIS (Konsep)
 
-actor "Buyer" as B
+actor "Pembeli" as B
 participant "Marketplace App" as APP
 participant "Payment Service" as PS
 database "db payment" as DB
 participant "Payment Gateway" as PG
 
-B->APP: checkout order
+B->APP: checkout pesanan
 APP->PS: req create payment (QRIS)
-PS->DB: save transaction (PENDING)
+PS->DB: simpan transaksi (PENDING)
 PS->PG: req generate QR
-PG-->PS: res QR string + expiry
-PS-->APP: res QR + expiry
-APP-->B: show QR
-B->PG: scan & pay (e-wallet / m-banking)
-PG->PS: callback payment result
-note over PS: verify signature,\nreject duplicate callback (idempotent)
-PS->DB: update transaction (PAID)
+PG-->PS: res QR string + batas waktu
+PS-->APP: res QR + batas waktu
+APP-->B: tampilkan QR
+B->PG: scan & bayar (e-wallet / m-banking)
+PG->PS: callback hasil pembayaran
+note over PS: verifikasi signature,\ntolak callback ganda (idempotent)
+PS->DB: update transaksi (PAID)
 PS-->PG: res ack
-PS->APP: notify order paid
-APP-->B: show payment success
-alt no callback before expiry
-APP->PS: req check status
+PS->APP: notifikasi pesanan dibayar
+APP-->B: tampilkan pembayaran berhasil
+alt callback tidak datang sampai batas waktu
+APP->PS: req cek status
 PS->PG: req inquiry status
 PG-->PS: res status
-PS->DB: update transaction (PAID / EXPIRED)
-PS-->APP: res final status
+PS->DB: update transaksi (PAID / EXPIRED)
+PS-->APP: res status akhir
 end

@@ -1,15 +1,15 @@
-title Temperature & Humidity Monitoring
+title Monitoring Suhu & Kelembapan
 
-actor "Unit Staff" as U
-participant "Monitoring App" as M
+actor "Staf Unit" as U
+participant "Aplikasi Monitoring" as M
 database "db monitoring" as DB
-actor "Supervisor" as S
+actor "Atasan" as S
 
-U->M: record readings per monitoring point (date, time)
-M->DB: save log & value per parameter
-S->M: open dashboard (unit, location, period)
-M->DB: get readings & standard min-max
-note over M: flag readings outside standard
-M-->S: chart + list of out-of-standard readings
-S->M: export PDF report
-M-->S: PDF report
+U->M: catat hasil ukur per titik pantau (tanggal, jam)
+M->DB: simpan log & nilai per parameter
+S->M: buka dashboard (unit, lokasi, periode)
+M->DB: ambil hasil ukur & standar min-max
+note over M: tandai hasil ukur di luar standar
+M-->S: grafik + daftar hasil ukur di luar standar
+S->M: export laporan PDF
+M-->S: laporan PDF

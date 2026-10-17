@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monitoring Suhu | Case Study</title>
-    <meta name="description" content="Case study by Surya Permana: temperature and humidity monitoring with out-of-standard detection for hospital units.">
+    <title>Monitoring Suhu | Studi Kasus</title>
+    <meta name="description" content="Studi kasus Surya Permana: monitoring suhu dan kelembapan dengan deteksi di luar standar untuk unit rumah sakit.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
@@ -36,64 +36,64 @@
             <a href="index.html#projects" class="w-10 h-10 rounded-full bg-cardbg flex justify-center items-center hover:bg-white/10 transition-colors">
                 <i data-lucide="arrow-left" class="w-5 h-5 text-lime"></i>
             </a>
-            <span class="font-heading text-2xl tracking-widest uppercase mt-1">Case Study</span>
+            <span class="font-heading text-2xl tracking-widest uppercase mt-1">Studi Kasus</span>
         </div>
     </nav>
 
     <main class="max-w-5xl mx-auto px-6 py-12 space-y-16 w-full cs">
         <header class="space-y-6">
-            <span class="cs-tag">Data Tracking &middot; Azra Hospital</span>
+            <span class="cs-tag">Pencatatan Data &middot; RS Azra</span>
             <h1 class="text-5xl md:text-7xl font-heading uppercase tracking-wide">Monitoring Suhu</h1>
-            <p class="text-textgray text-base md:text-lg max-w-3xl leading-relaxed">Recording temperature and humidity at monitoring points across hospital units, and flagging readings that fall outside the standard range.</p>
+            <p class="text-textgray text-base md:text-lg max-w-3xl leading-relaxed">Mencatat suhu dan kelembapan di titik pantau seluruh unit rumah sakit, dan menandai hasil ukur yang berada di luar rentang standar.</p>
             <div class="cs-meta">
-                <div><span>Role</span>System design &amp; fullstack development</div>
-                <div><span>Context</span>Internship, Azra Hospital (Nov 2025 &ndash; May 2026)</div>
+                <div><span>Peran</span>System design &amp; fullstack development</div>
+                <div><span>Konteks</span>Magang, RS Azra (Nov 2025 &ndash; Mei 2026)</div>
                 <div><span>Tech</span>Laravel, PHP, MySQL</div>
-                <div><span>Deliverables</span>Data model, input flow, dashboard, PDF report</div>
+                <div><span>Deliverables</span>Data model, alur input, dashboard, laporan PDF</div>
             </div>
         </header>
 
         <section>
-            <h2><span>01</span>Context &amp; Problem</h2>
-            <p>Rooms and storage areas in a hospital must stay within a set temperature and humidity range. Staff take readings at fixed monitoring points several times a day.</p>
-            <p>The system needed to make recording quick for staff and make it easy for supervisors to see, per unit and location, which readings were out of range.</p>
+            <h2><span>01</span>Konteks &amp; Masalah</h2>
+            <p>Ruangan dan area penyimpanan di rumah sakit harus berada dalam rentang suhu dan kelembapan tertentu. Petugas mencatat hasil ukur di titik pantau yang sudah ditentukan, beberapa kali sehari.</p>
+            <p>Sistem harus membuat pencatatan cepat bagi petugas, dan memudahkan atasan melihat, per unit dan lokasi, hasil ukur mana yang di luar rentang.</p>
         </section>
 
         <section>
-            <h2><span>02</span>Key Requirements</h2>
+            <h2><span>02</span>Kebutuhan Utama</h2>
             <ul>
-                <li><b>Configurable parameters:</b> parameters (e.g. temperature, humidity) with unit of measure and standard min&ndash;max, managed as master data.</li>
-                <li><b>Monitoring points:</b> points belong to locations and units; each unit is set up with the parameters it must record.</li>
-                <li><b>Fast input:</b> readings entered per date and time, including inline entry from the table.</li>
-                <li><b>Out-of-standard detection:</b> the dashboard compares each reading with its standard and lists the ones outside the range.</li>
-                <li><b>Reporting:</b> charts per period and PDF export.</li>
-                <li><b>Role-based menu access.</b></li>
+                <li><b>Parameter yang bisa diatur:</b> parameter (mis. suhu, kelembapan) dengan satuan dan standar min&ndash;max, dikelola sebagai master data.</li>
+                <li><b>Titik pantau:</b> titik pantau terikat pada lokasi dan unit; setiap unit diatur parameter apa saja yang wajib dicatat.</li>
+                <li><b>Input cepat:</b> hasil ukur diisi per tanggal dan jam, termasuk langsung dari tabel.</li>
+                <li><b>Deteksi di luar standar:</b> dashboard membandingkan setiap hasil ukur dengan standarnya dan menampilkan yang di luar rentang.</li>
+                <li><b>Pelaporan:</b> grafik per periode dan export PDF.</li>
+                <li><b>Akses menu berbasis role.</b></li>
             </ul>
         </section>
 
         <section>
-            <h2><span>03</span>Design</h2>
-            <div class="cs-figs one"><figure><img src="img/monitoring-suhu/sequence.png" alt="Sequence: recording readings and reviewing the dashboard"><figcaption>Sequence: recording readings and reviewing the dashboard</figcaption></figure></div>
-            <h3>Data model highlights</h3>
+            <h2><span>03</span>Desain</h2>
+            <div class="cs-figs one"><figure><img src="img/monitoring-suhu/sequence.png" alt="Sequence: mencatat hasil ukur dan meninjau dashboard"><figcaption>Sequence: mencatat hasil ukur dan meninjau dashboard</figcaption></figure></div>
+            <h3>Poin penting data model</h3>
             <ul>
-                <li><code>parameter_suhu</code> with unit and standard min&ndash;max</li>
-                <li><code>titik_pantau</code> and <code>master_lokasi</code>, linked to units</li>
-                <li><code>setting_unit_suhu</code> defines which parameters each unit / point must record</li>
-                <li><code>log_monitoring</code> (date, time, unit, point) with <code>detail_monitoring</code> holding one value per parameter</li>
+                <li><code>parameter_suhu</code> dengan satuan dan standar min&ndash;max</li>
+                <li><code>titik_pantau</code> dan <code>master_lokasi</code>, terhubung ke unit</li>
+                <li><code>setting_unit_suhu</code> menentukan parameter yang wajib dicatat tiap unit / titik pantau</li>
+                <li><code>log_monitoring</code> (tanggal, jam, unit, titik pantau) dengan <code>detail_monitoring</code> berisi satu nilai per parameter</li>
             </ul>
         </section>
 
         <section>
-            <h2><span>04</span>Key Decisions</h2>
+            <h2><span>04</span>Keputusan Penting</h2>
             <ul>
-                <li>One log with many detail values, so a new parameter can be added without changing the table structure.</li>
-                <li>Standards stored on the parameter, so the out-of-range rule is defined once and applied everywhere.</li>
+                <li>Satu log dengan banyak nilai detail, sehingga parameter baru bisa ditambah tanpa mengubah struktur tabel.</li>
+                <li>Standar disimpan di parameter, sehingga aturan di luar rentang cukup didefinisikan sekali dan berlaku di semua tempat.</li>
             </ul>
         </section>
 
         <section>
-            <h2><span>05</span>Screens</h2>
-            <div class="cs-gallery"><img src="img/monitoring-suhu/monitoring-suhu-1.webp" alt="Monitoring Suhu screen" loading="lazy"><img src="img/monitoring-suhu/monitoring-suhu-2.webp" alt="Monitoring Suhu screen" loading="lazy"><img src="img/monitoring-suhu/monitoring-suhu-3.webp" alt="Monitoring Suhu screen" loading="lazy"><img src="img/monitoring-suhu/monitoring-suhu-4.webp" alt="Monitoring Suhu screen" loading="lazy"><img src="img/monitoring-suhu/monitoring-suhu-5.webp" alt="Monitoring Suhu screen" loading="lazy"><img src="img/monitoring-suhu/monitoring-suhu-6.webp" alt="Monitoring Suhu screen" loading="lazy"><img src="img/monitoring-suhu/monitoring-suhu-7.webp" alt="Monitoring Suhu screen" loading="lazy"><img src="img/monitoring-suhu/monitoring-suhu-8.webp" alt="Monitoring Suhu screen" loading="lazy"></div>
+            <h2><span>05</span>Tampilan</h2>
+            <div class="cs-gallery"><img src="img/monitoring-suhu/monitoring-suhu-1.webp" alt="Tampilan Monitoring Suhu" loading="lazy"><img src="img/monitoring-suhu/monitoring-suhu-2.webp" alt="Tampilan Monitoring Suhu" loading="lazy"><img src="img/monitoring-suhu/monitoring-suhu-3.webp" alt="Tampilan Monitoring Suhu" loading="lazy"><img src="img/monitoring-suhu/monitoring-suhu-4.webp" alt="Tampilan Monitoring Suhu" loading="lazy"><img src="img/monitoring-suhu/monitoring-suhu-5.webp" alt="Tampilan Monitoring Suhu" loading="lazy"><img src="img/monitoring-suhu/monitoring-suhu-6.webp" alt="Tampilan Monitoring Suhu" loading="lazy"><img src="img/monitoring-suhu/monitoring-suhu-7.webp" alt="Tampilan Monitoring Suhu" loading="lazy"><img src="img/monitoring-suhu/monitoring-suhu-8.webp" alt="Tampilan Monitoring Suhu" loading="lazy"></div>
         </section>
 
         <div class="cs-next"><a href="project-risk-register.html">&larr; Risk Register</a><a href="project-ocean-space.html">Ocean Space &rarr;</a></div>

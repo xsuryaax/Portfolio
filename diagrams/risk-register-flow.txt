@@ -1,20 +1,20 @@
-title Hospital Risk Register Cycle
+title Siklus Risk Register Rumah Sakit
 
 actor "Unit" as U
 participant "Risk Register" as R
 database "db risk" as DB
-actor "Quality Team" as Q
+actor "Tim Mutu" as Q
 
-U->R: identify risk (activity, cause, impact, category)
-note over R: or copy from risk library
-R->DB: save risk with code & period
-U->R: analyse existing control, probability, impact
-note over R: score = probability x impact\n-> risk rank
-R->DB: save score & rank
-U->R: plan treatment (action, schedule, PIC)
-R->DB: save treatment plan
-U->R: evaluate residual probability & impact
-note over R: residual score,\n% risk reduction
-R->DB: save evaluation
-Q->R: view risk register, export PDF
-R-->Q: risk register report
+U->R: identifikasi risiko (kegiatan, penyebab, dampak, kategori)
+note over R: atau salin dari pustaka risiko
+R->DB: simpan risiko dengan kode & periode
+U->R: analisis pengendalian, probabilitas, dampak
+note over R: skor = probabilitas x dampak\n-> peringkat risiko
+R->DB: simpan skor & peringkat
+U->R: rencana penanganan (aksi, jadwal, PIC)
+R->DB: simpan rencana penanganan
+U->R: evaluasi probabilitas & dampak residual
+note over R: skor residual,\n% penurunan risiko
+R->DB: simpan evaluasi
+Q->R: lihat risk register, export PDF
+R-->Q: laporan risk register

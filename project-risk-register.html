@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Risk Register | Case Study</title>
-    <meta name="description" content="Case study by Surya Permana: translating a hospital spreadsheet risk register into a four-stage risk management system.">
+    <title>Risk Register | Studi Kasus</title>
+    <meta name="description" content="Studi kasus Surya Permana: mengubah risk register rumah sakit berbasis spreadsheet menjadi sistem manajemen risiko empat tahap.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
@@ -36,57 +36,57 @@
             <a href="index.html#projects" class="w-10 h-10 rounded-full bg-cardbg flex justify-center items-center hover:bg-white/10 transition-colors">
                 <i data-lucide="arrow-left" class="w-5 h-5 text-lime"></i>
             </a>
-            <span class="font-heading text-2xl tracking-widest uppercase mt-1">Case Study</span>
+            <span class="font-heading text-2xl tracking-widest uppercase mt-1">Studi Kasus</span>
         </div>
     </nav>
 
     <main class="max-w-5xl mx-auto px-6 py-12 space-y-16 w-full cs">
         <header class="space-y-6">
-            <span class="cs-tag">Risk Management &middot; Azra Hospital</span>
+            <span class="cs-tag">Manajemen Risiko &middot; RS Azra</span>
             <h1 class="text-5xl md:text-7xl font-heading uppercase tracking-wide">Risk Register</h1>
-            <p class="text-textgray text-base md:text-lg max-w-3xl leading-relaxed">Turning the hospital's spreadsheet-based risk register into a system that follows the full risk cycle: identification, analysis, treatment planning, and evaluation.</p>
+            <p class="text-textgray text-base md:text-lg max-w-3xl leading-relaxed">Mengubah risk register rumah sakit yang berbasis spreadsheet menjadi sistem yang mengikuti siklus risiko lengkap: identifikasi, analisis, rencana penanganan, dan evaluasi.</p>
             <div class="cs-meta">
-                <div><span>Role</span>System design &amp; fullstack development</div>
-                <div><span>Context</span>Internship, Azra Hospital (Nov 2025 &ndash; May 2026)</div>
+                <div><span>Peran</span>System design &amp; fullstack development</div>
+                <div><span>Konteks</span>Magang, RS Azra (Nov 2025 &ndash; Mei 2026)</div>
                 <div><span>Tech</span>Laravel, MySQL, PHP</div>
-                <div><span>Deliverables</span>Process mapping from spreadsheet, database design, application, PDF reports</div>
+                <div><span>Deliverables</span>Pemetaan proses dari spreadsheet, desain database, aplikasi, laporan PDF</div>
             </div>
         </header>
 
         <section>
-            <h2><span>01</span>Context &amp; Problem</h2>
-            <p>Each unit kept its risk register in a large spreadsheet with many columns: activity, objective, risk statement, cause, existing controls, probability, impact, risk level, treatment plan, schedule, owner, and person in charge of follow-up.</p>
-            <p>My task was to translate that spreadsheet into a structured system: separate the steps that happen at different times, keep the scoring consistent across units, and produce the same register as a report.</p>
+            <h2><span>01</span>Konteks &amp; Masalah</h2>
+            <p>Setiap unit mencatat risk register di spreadsheet besar dengan banyak kolom: kegiatan, tujuan, pernyataan risiko, penyebab, pengendalian yang ada, probabilitas, dampak, tingkat risiko, rencana penanganan, jadwal, pemilik risiko, dan penanggung jawab tindak lanjut.</p>
+            <p>Tugas saya menerjemahkan spreadsheet itu menjadi sistem yang terstruktur: memisahkan langkah yang terjadi di waktu berbeda, menjaga penilaian tetap konsisten antar-unit, dan menghasilkan register yang sama dalam bentuk laporan.</p>
         </section>
 
         <section>
-            <h2><span>02</span>Analysis: from spreadsheet to process</h2>
-            <p>The spreadsheet mixes four activities that are done at different moments. I split them into four stages, each with its own screen and table:</p>
-            <div class="cs-table"><table><thead><tr><th>Stage</th><th>What is recorded</th><th>Output</th></tr></thead><tbody><tr><td>1. Identification</td><td>Activity, objective, risk statement, cause, impact, category, scope, controllable / uncontrollable</td><td>Risk with a code, per period</td></tr><tr><td>2. Analysis</td><td>Existing control (description, design, effectiveness), probability, impact</td><td>Risk score and rank</td></tr><tr><td>3. Adequacy &amp; treatment</td><td>Treatment plan, schedule, person in charge</td><td>Action plan</td></tr><tr><td>4. Evaluation</td><td>Residual probability and impact, incidents</td><td>Residual score, % risk reduction</td></tr></tbody></table></div>
+            <h2><span>02</span>Analisis: dari spreadsheet ke proses</h2>
+            <p>Spreadsheet itu mencampur empat kegiatan yang dilakukan di waktu berbeda. Saya memisahkannya menjadi empat tahap, masing-masing dengan layar dan tabel sendiri:</p>
+            <div class="cs-table"><table><thead><tr><th>Tahap</th><th>Yang dicatat</th><th>Output</th></tr></thead><tbody><tr><td>1. Identifikasi</td><td>Kegiatan, tujuan, pernyataan risiko, penyebab, dampak, kategori, ruang lingkup, dapat / tidak dapat dikendalikan</td><td>Risiko dengan kode, per periode</td></tr><tr><td>2. Analisis</td><td>Pengendalian yang ada (uraian, desain, efektivitas), probabilitas, dampak</td><td>Skor dan peringkat risiko</td></tr><tr><td>3. Kecukupan &amp; penanganan</td><td>Rencana penanganan, jadwal, penanggung jawab</td><td>Rencana aksi</td></tr><tr><td>4. Evaluasi</td><td>Probabilitas dan dampak residual, insiden</td><td>Skor residual, % penurunan risiko</td></tr></tbody></table></div>
         </section>
 
         <section>
-            <h2><span>03</span>Key Requirements</h2>
+            <h2><span>03</span>Kebutuhan Utama</h2>
             <ul>
-                <li><b>Consistent scoring:</b> probability and impact come from master tables (value, colour, impact description per area), so every unit scores risk the same way.</li>
-                <li><b>Risk library:</b> units can copy common risks from a library instead of typing them again.</li>
-                <li><b>Periods:</b> risks belong to a period and quarter; reporting frequency is recorded per risk.</li>
-                <li><b>Role-based access</b> per menu, managed by an administrator.</li>
-                <li><b>Reports:</b> risk register, adequacy analysis, evaluation, and a single-risk profile exported to PDF.</li>
+                <li><b>Penilaian konsisten:</b> probabilitas dan dampak diambil dari tabel master (nilai, warna, uraian dampak per area), sehingga setiap unit menilai risiko dengan cara yang sama.</li>
+                <li><b>Pustaka risiko:</b> unit bisa menyalin risiko umum dari pustaka tanpa mengetik ulang.</li>
+                <li><b>Periode:</b> risiko terikat pada periode dan triwulan; frekuensi pelaporan dicatat per risiko.</li>
+                <li><b>Akses berbasis role</b> per menu, dikelola administrator.</li>
+                <li><b>Laporan:</b> risk register, analisis kecukupan, evaluasi, dan profil satu risiko, semuanya bisa di-export ke PDF.</li>
             </ul>
         </section>
 
         <section>
-            <h2><span>04</span>Design</h2>
-            <div class="cs-figs one"><figure><img src="img/Risk-Register/sequence.png" alt="Sequence: risk register cycle from identification to evaluation"><figcaption>Sequence: risk register cycle from identification to evaluation</figcaption></figure></div>
-            <h3>Scoring</h3>
-            <div class="cs-flow"><span>probability</span><i>&times;</i><span>impact</span><i>=</i><span class="ok">risk score &rarr; rank</span></div>
-            <p>After treatment, the same calculation with residual probability and impact gives the residual score, and the system shows the percentage of risk reduction.</p>
+            <h2><span>04</span>Desain</h2>
+            <div class="cs-figs one"><figure><img src="img/Risk-Register/sequence.png" alt="Sequence: siklus risk register dari identifikasi sampai evaluasi"><figcaption>Sequence: siklus risk register dari identifikasi sampai evaluasi</figcaption></figure></div>
+            <h3>Penilaian</h3>
+            <div class="cs-flow"><span>probabilitas</span><i>&times;</i><span>dampak</span><i>=</i><span class="ok">skor risiko &rarr; peringkat</span></div>
+            <p>Setelah penanganan, perhitungan yang sama dengan probabilitas dan dampak residual menghasilkan skor residual, dan sistem menampilkan persentase penurunan risiko.</p>
         </section>
 
         <section>
-            <h2><span>05</span>Screens</h2>
-            <div class="cs-gallery"><img src="img/Risk-Register/1.webp" alt="Risk Register screen" loading="lazy"><img src="img/Risk-Register/2.webp" alt="Risk Register screen" loading="lazy"><img src="img/Risk-Register/3.webp" alt="Risk Register screen" loading="lazy"><img src="img/Risk-Register/4.webp" alt="Risk Register screen" loading="lazy"><img src="img/Risk-Register/5.webp" alt="Risk Register screen" loading="lazy"><img src="img/Risk-Register/6.webp" alt="Risk Register screen" loading="lazy"><img src="img/Risk-Register/7.webp" alt="Risk Register screen" loading="lazy"></div>
+            <h2><span>05</span>Tampilan</h2>
+            <div class="cs-gallery"><img src="img/Risk-Register/1.webp" alt="Tampilan Risk Register" loading="lazy"><img src="img/Risk-Register/2.webp" alt="Tampilan Risk Register" loading="lazy"><img src="img/Risk-Register/3.webp" alt="Tampilan Risk Register" loading="lazy"><img src="img/Risk-Register/4.webp" alt="Tampilan Risk Register" loading="lazy"><img src="img/Risk-Register/5.webp" alt="Tampilan Risk Register" loading="lazy"><img src="img/Risk-Register/6.webp" alt="Tampilan Risk Register" loading="lazy"><img src="img/Risk-Register/7.webp" alt="Tampilan Risk Register" loading="lazy"></div>
         </section>
 
         <div class="cs-next"><a href="project-simmutu.html">&larr; SIMMUTU</a><a href="project-monitoring-suhu.html">Monitoring Suhu &rarr;</a></div>

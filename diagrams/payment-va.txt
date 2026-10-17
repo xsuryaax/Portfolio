@@ -1,22 +1,22 @@
-title Virtual Account Payment (Concept)
+title Pembayaran Virtual Account (Konsep)
 
-actor "Buyer" as B
+actor "Pembeli" as B
 participant "Marketplace App" as APP
 participant "Payment Service" as PS
 database "db payment" as DB
 participant "Bank" as BK
 
-B->APP: choose Virtual Account
+B->APP: pilih Virtual Account
 APP->PS: req create payment (VA)
-PS->DB: save transaction (PENDING)
-PS->BK: req create VA number
-BK-->PS: res VA number
-PS-->APP: res VA number + expiry
-APP-->B: show VA number
-B->BK: transfer to VA
-BK->PS: req payment notification
-note over PS: check VA exists, amount matches,\nnot expired, not already paid
-PS->DB: update transaction (PAID)
-PS-->BK: res success
-PS->APP: notify order paid
-APP-->B: show payment success
+PS->DB: simpan transaksi (PENDING)
+PS->BK: req buat nomor VA
+BK-->PS: res nomor VA
+PS-->APP: res nomor VA + batas waktu
+APP-->B: tampilkan nomor VA
+B->BK: transfer ke VA
+BK->PS: req notifikasi pembayaran
+note over PS: cek VA ada, nominal sesuai,\nbelum kedaluwarsa, belum dibayar
+PS->DB: update transaksi (PAID)
+PS-->BK: res sukses
+PS->APP: notifikasi pesanan dibayar
+APP-->B: tampilkan pembayaran berhasil

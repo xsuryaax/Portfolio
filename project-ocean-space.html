@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ocean Space | Case Study</title>
-    <meta name="description" content="Case study by Surya Permana: e-commerce for a fish business with Midtrans payment, designed with use case, activity, and class diagrams.">
+    <title>Ocean Space | Studi Kasus</title>
+    <meta name="description" content="Studi kasus Surya Permana: e-commerce usaha ikan dengan pembayaran Midtrans, dirancang dengan use case, activity, dan class diagram.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
@@ -36,61 +36,61 @@
             <a href="index.html#projects" class="w-10 h-10 rounded-full bg-cardbg flex justify-center items-center hover:bg-white/10 transition-colors">
                 <i data-lucide="arrow-left" class="w-5 h-5 text-lime"></i>
             </a>
-            <span class="font-heading text-2xl tracking-widest uppercase mt-1">Case Study</span>
+            <span class="font-heading text-2xl tracking-widest uppercase mt-1">Studi Kasus</span>
         </div>
     </nav>
 
     <main class="max-w-5xl mx-auto px-6 py-12 space-y-16 w-full cs">
         <header class="space-y-6">
-            <span class="cs-tag">Final Thesis &middot; E-Commerce</span>
+            <span class="cs-tag">Skripsi &middot; E-Commerce</span>
             <h1 class="text-5xl md:text-7xl font-heading uppercase tracking-wide">Ocean Space</h1>
-            <p class="text-textgray text-base md:text-lg max-w-3xl leading-relaxed">An online store for an ornamental fish business, with catalogue, cart, checkout, Midtrans payment, and an admin side for products, orders, purchasing, and cashier.</p>
+            <p class="text-textgray text-base md:text-lg max-w-3xl leading-relaxed">Toko online untuk usaha ikan hias, dengan katalog, keranjang, checkout, pembayaran Midtrans, dan sisi admin untuk produk, pesanan, pembelian stok, dan kasir.</p>
             <div class="cs-meta">
-                <div><span>Role</span>Analysis, design &amp; fullstack development</div>
-                <div><span>Context</span>Final thesis, Gunadarma University</div>
+                <div><span>Peran</span>Analisis, desain &amp; fullstack development</div>
+                <div><span>Konteks</span>Skripsi, Universitas Gunadarma</div>
                 <div><span>Tech</span>Laravel, MySQL, Midtrans</div>
-                <div><span>Deliverables</span>Use case, activity &amp; class diagrams, application</div>
+                <div><span>Deliverables</span>Use case, activity &amp; class diagram, aplikasi</div>
             </div>
         </header>
 
         <section>
-            <h2><span>01</span>Context &amp; Problem</h2>
-            <p>A fish business selling online needed a store where customers can browse products, order, and pay digitally, while the owner manages products, incoming orders, stock purchasing, and in-store sales in the same system.</p>
+            <h2><span>01</span>Konteks &amp; Masalah</h2>
+            <p>Usaha ikan yang berjualan online butuh toko tempat pelanggan bisa melihat produk, memesan, dan membayar secara digital, sementara pemilik mengelola produk, pesanan masuk, pembelian stok, dan penjualan di toko dalam satu sistem.</p>
         </section>
 
         <section>
-            <h2><span>02</span>Scope</h2>
+            <h2><span>02</span>Ruang Lingkup</h2>
             <ul>
-                <li><b>Customer:</b> catalogue, product detail, cart, buy now, checkout, Midtrans payment, order history, invoice download.</li>
-                <li><b>Admin:</b> product management, order status updates, purchasing, cashier (in-store sales), attendance, and fees.</li>
+                <li><b>Pelanggan:</b> katalog, detail produk, keranjang, beli langsung, checkout, pembayaran Midtrans, riwayat pesanan, unduh invoice.</li>
+                <li><b>Admin:</b> kelola produk, update status pesanan, pembelian stok, kasir (penjualan di toko), absensi, dan biaya.</li>
             </ul>
         </section>
 
         <section>
-            <h2><span>03</span>Design</h2>
-            <div class="cs-figs"><figure><img src="img/ocean-space/use-case.webp" alt="Use case diagram"><figcaption>Use case diagram</figcaption></figure><figure><img src="img/ocean-space/activity-diagram-pemesanan.webp" alt="Activity diagram: customer ordering flow"><figcaption>Activity diagram: customer ordering flow</figcaption></figure><figure><img src="img/ocean-space/class-diagram.webp" alt="Class diagram"><figcaption>Class diagram</figcaption></figure></div>
+            <h2><span>03</span>Desain</h2>
+            <div class="cs-figs"><figure><img src="img/ocean-space/use-case.webp" alt="Use case diagram"><figcaption>Use case diagram</figcaption></figure><figure><img src="img/ocean-space/activity-diagram-pemesanan.webp" alt="Activity diagram: alur pemesanan pelanggan"><figcaption>Activity diagram: alur pemesanan pelanggan</figcaption></figure><figure><img src="img/ocean-space/class-diagram.webp" alt="Class diagram"><figcaption>Class diagram</figcaption></figure></div>
         </section>
 
         <section>
-            <h2><span>04</span>Payment Flow</h2>
-            <p>Checkout creates an order, the customer pays through Midtrans, and Midtrans sends a notification that updates the order:</p>
-            <div class="cs-table"><table><thead><tr><th>Midtrans status</th><th>Payment status</th><th>Order status</th></tr></thead><tbody><tr><td>settlement</td><td>paid</td><td>pending (ready to process)</td></tr><tr><td>cancel / expire / deny</td><td>failed</td><td>cancelled</td></tr></tbody></table></div>
+            <h2><span>04</span>Alur Pembayaran</h2>
+            <p>Checkout membuat pesanan, pelanggan membayar lewat Midtrans, lalu Midtrans mengirim notifikasi yang meng-update pesanan:</p>
+            <div class="cs-table"><table><thead><tr><th>Status Midtrans</th><th>Status pembayaran</th><th>Status pesanan</th></tr></thead><tbody><tr><td>settlement</td><td>paid</td><td>pending (siap diproses)</td></tr><tr><td>cancel / expire / deny</td><td>failed</td><td>cancelled</td></tr></tbody></table></div>
         </section>
 
         <section>
-            <h2><span>05</span>Looking Back</h2>
-            <p>Working on payment systems since then, I would design the notification handling more defensively:</p>
+            <h2><span>05</span>Refleksi</h2>
+            <p>Setelah bekerja di sistem pembayaran, saya akan merancang penanganan notifikasi dengan lebih hati-hati:</p>
             <ul>
-                <li>Verify the notification signature before trusting it.</li>
-                <li>Make the update idempotent so a repeated notification cannot change an order twice.</li>
-                <li>Check the transaction status with the provider when a notification does not arrive.</li>
+                <li>Memverifikasi signature notifikasi sebelum dipercaya.</li>
+                <li>Membuat update idempotent, sehingga notifikasi yang terkirim ulang tidak mengubah pesanan dua kali.</li>
+                <li>Mengecek status transaksi ke provider bila notifikasi tidak datang.</li>
             </ul>
-            <p>These are the same principles I applied in the <a class="text-lime underline" href="project-payment-integration.html">payment integration case study</a>.</p>
+            <p>Prinsip yang sama saya terapkan di <a class="text-lime underline" href="project-payment-integration.html">studi kasus payment integration</a>.</p>
         </section>
 
         <section>
-            <h2><span>06</span>Screens</h2>
-            <div class="cs-gallery"><img src="img/ocean-space/ocean_space.webp" alt="Ocean Space screen" loading="lazy"><img src="img/ocean-space/oceanspace1.webp" alt="Ocean Space screen" loading="lazy"><img src="img/ocean-space/oceanspace2.webp" alt="Ocean Space screen" loading="lazy"><img src="img/ocean-space/oceanspace3.webp" alt="Ocean Space screen" loading="lazy"><img src="img/ocean-space/oceanspace4.webp" alt="Ocean Space screen" loading="lazy"></div>
+            <h2><span>06</span>Tampilan</h2>
+            <div class="cs-gallery"><img src="img/ocean-space/ocean_space.webp" alt="Tampilan Ocean Space" loading="lazy"><img src="img/ocean-space/oceanspace1.webp" alt="Tampilan Ocean Space" loading="lazy"><img src="img/ocean-space/oceanspace2.webp" alt="Tampilan Ocean Space" loading="lazy"><img src="img/ocean-space/oceanspace3.webp" alt="Tampilan Ocean Space" loading="lazy"><img src="img/ocean-space/oceanspace4.webp" alt="Tampilan Ocean Space" loading="lazy"></div>
         </section>
 
         <div class="cs-next"><a href="project-monitoring-suhu.html">&larr; Monitoring Suhu</a><a href="project-sct-ecommerce.html">SCT E-Commerce &rarr;</a></div>

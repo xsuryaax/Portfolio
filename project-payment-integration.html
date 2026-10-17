@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Integration (QRIS &amp; VA) | Case Study</title>
-    <meta name="description" content="Concept case study by Surya Permana: requirements, sequence diagrams, API specification, and test scenarios for QRIS and Virtual Account payment integration.">
+    <title>Payment Integration (QRIS &amp; VA) | Studi Kasus</title>
+    <meta name="description" content="Studi kasus konsep oleh Surya Permana: requirement, sequence diagram, spesifikasi API, dan test scenario untuk integrasi pembayaran QRIS dan Virtual Account.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
@@ -36,101 +36,101 @@
             <a href="index.html#projects" class="w-10 h-10 rounded-full bg-cardbg flex justify-center items-center hover:bg-white/10 transition-colors">
                 <i data-lucide="arrow-left" class="w-5 h-5 text-lime"></i>
             </a>
-            <span class="font-heading text-2xl tracking-widest uppercase mt-1">Case Study</span>
+            <span class="font-heading text-2xl tracking-widest uppercase mt-1">Studi Kasus</span>
         </div>
     </nav>
 
     <main class="max-w-5xl mx-auto px-6 py-12 space-y-16 w-full cs">
         <header class="space-y-6">
-            <span class="cs-tag">Concept Case Study &middot; Fintech</span>
+            <span class="cs-tag">Studi Kasus Konsep &middot; Fintech</span>
             <h1 class="text-5xl md:text-7xl font-heading uppercase tracking-wide">Payment Integration: QRIS &amp; Virtual Account</h1>
             <p class="text-textgray text-base md:text-lg max-w-3xl leading-relaxed">
-                Replacing manual bank-transfer confirmation in a marketplace with automated QRIS and Virtual Account payments, from requirements to API specification and test scenarios.
+                Mengganti konfirmasi transfer bank manual di sebuah marketplace dengan pembayaran QRIS dan Virtual Account otomatis, dari requirement sampai spesifikasi API dan test scenario.
             </p>
             <div class="cs-meta">
-                <div><span>Role</span>System Analyst</div>
-                <div><span>Deliverables</span>Requirements, sequence diagrams, API spec, test scenarios</div>
+                <div><span>Peran</span>System Analyst</div>
+                <div><span>Deliverables</span>Requirement, sequence diagram, spesifikasi API, test scenario</div>
                 <div><span>Tools</span>sequencediagram.org, Draw.io, Postman</div>
-                <div><span>Type</span>Concept / self-initiated</div>
+                <div><span>Jenis</span>Konsep / inisiatif pribadi</div>
             </div>
-            <p class="cs-note">PasarKita is a fictional company. This case was written to show how I analyse a payment integration; it does not use any employer or partner material.</p>
+            <p class="cs-note">PasarKita adalah perusahaan fiktif. Studi kasus ini dibuat untuk menunjukkan cara saya menganalisis integrasi pembayaran; tidak memakai materi apa pun dari tempat kerja maupun partner.</p>
         </header>
 
         <section>
-            <h2><span>01</span>Context &amp; Problem</h2>
-            <p>PasarKita is a marketplace for small businesses. Buyers pay by manual bank transfer, upload a transfer receipt, and an admin checks each receipt against the bank statement before the order is processed.</p>
+            <h2><span>01</span>Konteks &amp; Masalah</h2>
+            <p>PasarKita adalah marketplace untuk usaha kecil. Pembeli membayar dengan transfer bank manual, mengunggah bukti transfer, lalu admin mencocokkan setiap bukti dengan mutasi rekening sebelum pesanan diproses.</p>
             <ul>
-                <li>Orders wait hours, sometimes overnight, for an admin to confirm the payment.</li>
-                <li>Buyers transfer the wrong amount or forget to upload the receipt, so admins chase them one by one.</li>
-                <li>Finance has no single place to see which orders are paid, pending, or expired.</li>
+                <li>Pesanan menunggu berjam-jam, kadang sampai besok, sampai admin mengonfirmasi pembayaran.</li>
+                <li>Pembeli salah nominal transfer atau lupa mengunggah bukti, sehingga admin harus menghubungi mereka satu per satu.</li>
+                <li>Tim Finance tidak punya satu tempat untuk melihat pesanan mana yang sudah dibayar, masih pending, atau kedaluwarsa.</li>
             </ul>
-            <p><b>Goal:</b> buyers pay with QRIS or a Virtual Account and the order status changes to <b>Paid</b> automatically, without admin involvement.</p>
+            <p><b>Tujuan:</b> pembeli membayar dengan QRIS atau Virtual Account dan status pesanan berubah menjadi <b>Paid</b> secara otomatis, tanpa campur tangan admin.</p>
         </section>
 
         <section>
-            <h2><span>02</span>Scope</h2>
+            <h2><span>02</span>Ruang Lingkup</h2>
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="cs-box"><h3>In scope</h3><ul>
-                    <li>Payment Service between Marketplace App and payment providers</li>
-                    <li>QRIS (dynamic QR per order) and Virtual Account</li>
-                    <li>Payment callback / notification handling</li>
-                    <li>Status check when a callback does not arrive</li>
-                    <li>Daily reconciliation report for Finance</li>
+                <div class="cs-box"><h3>Termasuk</h3><ul>
+                    <li>Payment Service di antara Marketplace App dan provider pembayaran</li>
+                    <li>QRIS (QR dinamis per pesanan) dan Virtual Account</li>
+                    <li>Penanganan callback / notifikasi pembayaran</li>
+                    <li>Cek status bila callback tidak datang</li>
+                    <li>Laporan rekonsiliasi harian untuk Finance</li>
                 </ul></div>
-                <div class="cs-box"><h3>Out of scope</h3><ul>
-                    <li>Refunds and partial payments</li>
-                    <li>Card payments</li>
-                    <li>Seller settlement / payout</li>
+                <div class="cs-box"><h3>Tidak termasuk</h3><ul>
+                    <li>Refund dan pembayaran sebagian</li>
+                    <li>Pembayaran kartu</li>
+                    <li>Settlement / payout ke penjual</li>
                 </ul></div>
             </div>
         </section>
 
         <section>
             <h2><span>03</span>Requirements</h2>
-            <h3>Functional</h3>
+            <h3>Fungsional</h3>
             <div class="cs-table"><table>
-                <thead><tr><th>ID</th><th>Requirement</th><th>Priority</th></tr></thead>
+                <thead><tr><th>ID</th><th>Requirement</th><th>Prioritas</th></tr></thead>
                 <tbody>
-                    <tr><td>FR-01</td><td>Buyer can choose QRIS or Virtual Account at checkout.</td><td>Must</td></tr>
-                    <tr><td>FR-02</td><td>System creates one payment per order with an amount equal to the order total and an expiry time.</td><td>Must</td></tr>
-                    <tr><td>FR-03</td><td>System shows the QR or VA number together with the amount and expiry countdown.</td><td>Must</td></tr>
-                    <tr><td>FR-04</td><td>System updates the order to Paid when the provider confirms payment.</td><td>Must</td></tr>
-                    <tr><td>FR-05</td><td>If no confirmation arrives before expiry, system checks the status with the provider before marking the payment Expired.</td><td>Must</td></tr>
-                    <tr><td>FR-06</td><td>Finance can download a daily list of payments and their status for reconciliation.</td><td>Should</td></tr>
+                    <tr><td>FR-01</td><td>Pembeli bisa memilih QRIS atau Virtual Account saat checkout.</td><td>Must</td></tr>
+                    <tr><td>FR-02</td><td>Sistem membuat satu pembayaran per pesanan dengan nominal sama dengan total pesanan dan batas waktu bayar.</td><td>Must</td></tr>
+                    <tr><td>FR-03</td><td>Sistem menampilkan QR atau nomor VA beserta nominal dan hitung mundur batas waktu.</td><td>Must</td></tr>
+                    <tr><td>FR-04</td><td>Sistem mengubah pesanan menjadi Paid saat provider mengonfirmasi pembayaran.</td><td>Must</td></tr>
+                    <tr><td>FR-05</td><td>Bila konfirmasi tidak datang sampai batas waktu, sistem mengecek status ke provider sebelum menandai pembayaran Expired.</td><td>Must</td></tr>
+                    <tr><td>FR-06</td><td>Finance bisa mengunduh daftar pembayaran harian beserta statusnya untuk rekonsiliasi.</td><td>Should</td></tr>
                 </tbody>
             </table></div>
             <h3>Non-functional</h3>
             <ul>
-                <li><b>Idempotent:</b> a duplicate callback must not change a payment twice.</li>
-                <li><b>Verified:</b> every callback is verified (signature) before it is trusted.</li>
-                <li><b>Consistent amount:</b> a notification whose amount differs from the payment is rejected and logged.</li>
-                <li><b>Secure:</b> provider credentials stored in environment / vault, sensitive data masked in logs.</li>
+                <li><b>Idempotent:</b> callback ganda tidak boleh mengubah pembayaran dua kali.</li>
+                <li><b>Terverifikasi:</b> setiap callback diverifikasi (signature) sebelum dipercaya.</li>
+                <li><b>Nominal konsisten:</b> notifikasi dengan nominal berbeda dari pembayaran ditolak dan dicatat di log.</li>
+                <li><b>Aman:</b> kredensial provider disimpan di environment / vault, data sensitif dimasking di log.</li>
             </ul>
         </section>
 
         <section>
-            <h2><span>04</span>Design</h2>
-            <p>The Marketplace App never talks to providers directly. A single Payment Service owns the transaction record and the provider integration, so adding a new method later does not touch the app.</p>
+            <h2><span>04</span>Desain</h2>
+            <p>Marketplace App tidak pernah berkomunikasi langsung dengan provider. Satu Payment Service memegang data transaksi dan integrasi provider, sehingga menambah metode baru nanti tidak perlu mengubah aplikasi.</p>
             <div class="cs-figs">
-                <figure><img src="img/payment/payment-qris.png" alt="QRIS payment sequence diagram"><figcaption>Sequence: QRIS checkout, including status check when the callback is missing</figcaption></figure>
-                <figure><img src="img/payment/payment-va.png" alt="Virtual Account payment sequence diagram"><figcaption>Sequence: Virtual Account payment notification</figcaption></figure>
+                <figure><img src="img/payment/payment-qris.png" alt="Sequence diagram pembayaran QRIS"><figcaption>Sequence: checkout QRIS, termasuk cek status bila callback tidak datang</figcaption></figure>
+                <figure><img src="img/payment/payment-va.png" alt="Sequence diagram pembayaran Virtual Account"><figcaption>Sequence: notifikasi pembayaran Virtual Account</figcaption></figure>
             </div>
-            <h3>Payment status</h3>
-            <div class="cs-flow"><span>PENDING</span><i>&rarr;</i><span class="ok">PAID</span><i>or</i><span class="bad">EXPIRED</span><i>or</i><span class="bad">FAILED</span></div>
-            <p class="text-sm">A payment only moves forward. Once it is PAID, EXPIRED, or FAILED it never changes again, which is what makes duplicate callbacks safe.</p>
+            <h3>Status pembayaran</h3>
+            <div class="cs-flow"><span>PENDING</span><i>&rarr;</i><span class="ok">PAID</span><i>atau</i><span class="bad">EXPIRED</span><i>atau</i><span class="bad">FAILED</span></div>
+            <p class="text-sm">Status pembayaran hanya bergerak maju. Begitu PAID, EXPIRED, atau FAILED, status tidak berubah lagi; inilah yang membuat callback ganda aman.</p>
         </section>
 
         <section>
-            <h2><span>05</span>API Specification</h2>
+            <h2><span>05</span>Spesifikasi API</h2>
             <h3>Create Payment &mdash; <code>POST /payment/create</code></h3>
             <div class="cs-table"><table>
-                <thead><tr><th>Type</th><th>Field</th><th>Req</th><th>Description</th></tr></thead>
+                <thead><tr><th>Type</th><th>Field</th><th>Req</th><th>Keterangan</th></tr></thead>
                 <tbody>
-                    <tr><td>String</td><td>orderId</td><td>M</td><td>Marketplace order number, unique per payment</td></tr>
-                    <tr><td>Number</td><td>amount</td><td>M</td><td>Order total in IDR, no decimals</td></tr>
-                    <tr><td>String</td><td>method</td><td>M</td><td><code>QRIS</code> or <code>VA</code></td></tr>
-                    <tr><td>String</td><td>bankCode</td><td>C</td><td>Required when method is <code>VA</code></td></tr>
-                    <tr><td>Object</td><td>customer</td><td>M</td><td>Name, email, phone</td></tr>
+                    <tr><td>String</td><td>orderId</td><td>M</td><td>Nomor pesanan marketplace, unik per pembayaran</td></tr>
+                    <tr><td>Number</td><td>amount</td><td>M</td><td>Total pesanan dalam IDR, tanpa desimal</td></tr>
+                    <tr><td>String</td><td>method</td><td>M</td><td><code>QRIS</code> atau <code>VA</code></td></tr>
+                    <tr><td>String</td><td>bankCode</td><td>C</td><td>Wajib bila method <code>VA</code></td></tr>
+                    <tr><td>Object</td><td>customer</td><td>M</td><td>Nama, email, nomor HP</td></tr>
                 </tbody>
             </table></div>
             <pre class="cs-code">{
@@ -144,44 +144,44 @@
 }</pre>
             <h3>Payment Callback &mdash; <code>POST /payment/callback</code></h3>
             <div class="cs-table"><table>
-                <thead><tr><th>Type</th><th>Field</th><th>Req</th><th>Description</th></tr></thead>
+                <thead><tr><th>Type</th><th>Field</th><th>Req</th><th>Keterangan</th></tr></thead>
                 <tbody>
-                    <tr><td>String</td><td>paymentId</td><td>M</td><td>Payment reference from Create Payment</td></tr>
-                    <tr><td>String</td><td>status</td><td>M</td><td><code>PAID</code> or <code>FAILED</code></td></tr>
-                    <tr><td>Number</td><td>paidAmount</td><td>M</td><td>Must equal the payment amount</td></tr>
-                    <tr><td>String</td><td>paidAt</td><td>M</td><td>ISO 8601 timestamp</td></tr>
-                    <tr><td>String</td><td>signature</td><td>M</td><td>Verified before the callback is processed</td></tr>
+                    <tr><td>String</td><td>paymentId</td><td>M</td><td>Referensi pembayaran dari Create Payment</td></tr>
+                    <tr><td>String</td><td>status</td><td>M</td><td><code>PAID</code> atau <code>FAILED</code></td></tr>
+                    <tr><td>Number</td><td>paidAmount</td><td>M</td><td>Harus sama dengan nominal pembayaran</td></tr>
+                    <tr><td>String</td><td>paidAt</td><td>M</td><td>Timestamp ISO 8601</td></tr>
+                    <tr><td>String</td><td>signature</td><td>M</td><td>Diverifikasi sebelum callback diproses</td></tr>
                 </tbody>
             </table></div>
             <h3>Check Status &mdash; <code>GET /payment/status/{paymentId}</code></h3>
-            <p class="text-sm">Returns the latest status. If the payment is still PENDING after expiry, the Payment Service asks the provider first, then stores and returns the final status.</p>
+            <p class="text-sm">Mengembalikan status terakhir. Bila pembayaran masih PENDING setelah batas waktu, Payment Service menanyakan ke provider terlebih dahulu, lalu menyimpan dan mengembalikan status akhirnya.</p>
         </section>
 
         <section>
             <h2><span>06</span>Test Scenarios</h2>
             <div class="cs-table"><table>
-                <thead><tr><th>No</th><th>Scenario</th><th>Expected Result</th></tr></thead>
+                <thead><tr><th>No</th><th>Skenario</th><th>Expected Result</th></tr></thead>
                 <tbody>
-                    <tr><td>1</td><td>Pay QRIS with the exact amount before expiry</td><td>Callback received, order becomes Paid</td></tr>
-                    <tr><td>2</td><td>Pay to VA with the exact amount</td><td>Notification accepted, order becomes Paid</td></tr>
-                    <tr><td>3</td><td>Same callback sent twice</td><td>Second callback acknowledged, payment not changed again</td></tr>
-                    <tr><td>4</td><td>Callback with invalid signature</td><td>Rejected and logged, payment stays Pending</td></tr>
-                    <tr><td>5</td><td>VA notification with a different amount</td><td>Rejected, payment stays Pending</td></tr>
-                    <tr><td>6</td><td>Buyer pays but callback never arrives</td><td>Status check after expiry finds Paid, order becomes Paid</td></tr>
-                    <tr><td>7</td><td>Buyer does not pay before expiry</td><td>Status check confirms unpaid, payment becomes Expired</td></tr>
-                    <tr><td>8</td><td>Daily reconciliation report</td><td>Every payment of the day listed once with its final status</td></tr>
+                    <tr><td>1</td><td>Bayar QRIS dengan nominal tepat sebelum batas waktu</td><td>Callback diterima, pesanan menjadi Paid</td></tr>
+                    <tr><td>2</td><td>Bayar ke VA dengan nominal tepat</td><td>Notifikasi diterima, pesanan menjadi Paid</td></tr>
+                    <tr><td>3</td><td>Callback yang sama terkirim dua kali</td><td>Callback kedua dijawab, pembayaran tidak berubah lagi</td></tr>
+                    <tr><td>4</td><td>Callback dengan signature tidak valid</td><td>Ditolak dan dicatat di log, pembayaran tetap Pending</td></tr>
+                    <tr><td>5</td><td>Notifikasi VA dengan nominal berbeda</td><td>Ditolak, pembayaran tetap Pending</td></tr>
+                    <tr><td>6</td><td>Pembeli membayar tetapi callback tidak pernah datang</td><td>Cek status setelah batas waktu menemukan Paid, pesanan menjadi Paid</td></tr>
+                    <tr><td>7</td><td>Pembeli tidak membayar sampai batas waktu</td><td>Cek status memastikan belum dibayar, pembayaran menjadi Expired</td></tr>
+                    <tr><td>8</td><td>Laporan rekonsiliasi harian</td><td>Setiap pembayaran hari itu tercantum satu kali dengan status akhirnya</td></tr>
                 </tbody>
             </table></div>
         </section>
 
         <section>
-            <h2><span>07</span>Risks &amp; Mitigation</h2>
+            <h2><span>07</span>Risiko &amp; Mitigasi</h2>
             <div class="cs-table"><table>
-                <thead><tr><th>Risk</th><th>Impact</th><th>Mitigation</th></tr></thead>
+                <thead><tr><th>Risiko</th><th>Dampak</th><th>Mitigasi</th></tr></thead>
                 <tbody>
-                    <tr><td>Callback lost or delayed</td><td>Buyer paid but order still Pending</td><td>Status check at expiry and on buyer request; daily reconciliation</td></tr>
-                    <tr><td>Duplicate or forged callback</td><td>Order marked Paid twice or without payment</td><td>Signature verification, idempotent update, forward-only status</td></tr>
-                    <tr><td>Provider downtime</td><td>Buyers cannot create payments</td><td>Timeouts and clear error message; buyer can switch method</td></tr>
+                    <tr><td>Callback hilang atau terlambat</td><td>Pembeli sudah bayar tetapi pesanan masih Pending</td><td>Cek status saat batas waktu dan atas permintaan pembeli; rekonsiliasi harian</td></tr>
+                    <tr><td>Callback ganda atau palsu</td><td>Pesanan ditandai Paid dua kali atau tanpa pembayaran</td><td>Verifikasi signature, update idempotent, status hanya bergerak maju</td></tr>
+                    <tr><td>Provider down</td><td>Pembeli tidak bisa membuat pembayaran</td><td>Timeout dan pesan error yang jelas; pembeli bisa ganti metode</td></tr>
                 </tbody>
             </table></div>
         </section>

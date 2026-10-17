@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIMMUTU | Case Study</title>
-    <meta name="description" content="Case study by Surya Permana: hospital quality indicator reporting, validation, analysis, and PDSA follow-up.">
+    <title>SIMMUTU | Studi Kasus</title>
+    <meta name="description" content="Studi kasus Surya Permana: pelaporan indikator mutu rumah sakit, validasi, analisis, dan tindak lanjut PDSA.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
@@ -36,75 +36,75 @@
             <a href="index.html#projects" class="w-10 h-10 rounded-full bg-cardbg flex justify-center items-center hover:bg-white/10 transition-colors">
                 <i data-lucide="arrow-left" class="w-5 h-5 text-lime"></i>
             </a>
-            <span class="font-heading text-2xl tracking-widest uppercase mt-1">Case Study</span>
+            <span class="font-heading text-2xl tracking-widest uppercase mt-1">Studi Kasus</span>
         </div>
     </nav>
 
     <main class="max-w-5xl mx-auto px-6 py-12 space-y-16 w-full cs">
         <header class="space-y-6">
-            <span class="cs-tag">Hospital Quality &middot; Azra Hospital</span>
-            <h1 class="text-5xl md:text-7xl font-heading uppercase tracking-wide">SIMMUTU: Quality Indicator System</h1>
-            <p class="text-textgray text-base md:text-lg max-w-3xl leading-relaxed">A system for hospital units to report quality indicators, have them validated, analysed per period, and followed up with PDSA when a target is not achieved.</p>
+            <span class="cs-tag">Mutu Rumah Sakit &middot; RS Azra</span>
+            <h1 class="text-5xl md:text-7xl font-heading uppercase tracking-wide">SIMMUTU: Sistem Indikator Mutu</h1>
+            <p class="text-textgray text-base md:text-lg max-w-3xl leading-relaxed">Sistem untuk unit rumah sakit melaporkan indikator mutu, memvalidasinya, menganalisis per periode, dan menindaklanjuti dengan PDSA bila target tidak tercapai.</p>
             <div class="cs-meta">
-                <div><span>Role</span>System design &amp; fullstack development</div>
-                <div><span>Context</span>Internship, Azra Hospital (Nov 2025 &ndash; May 2026)</div>
+                <div><span>Peran</span>System design &amp; fullstack development</div>
+                <div><span>Konteks</span>Magang, RS Azra (Nov 2025 &ndash; Mei 2026)</div>
                 <div><span>Tech</span>Laravel, TailwindCSS, MySQL</div>
-                <div><span>Deliverables</span>Workflow, database design, roles &amp; access, application</div>
+                <div><span>Deliverables</span>Alur kerja, desain database, role &amp; hak akses, aplikasi</div>
             </div>
         </header>
 
         <section>
-            <h2><span>01</span>Context &amp; Problem</h2>
-            <p>Every hospital unit measures quality indicators each period, for example compliance or incident rates, and the hospital also reports Minimum Service Standards (SPM). Each indicator has its own target, which can be a minimum, a maximum, or a range.</p>
-            <p>The process involves several people: unit staff collect the data, a validator checks it, the quality team analyses the results, and indicators that miss their target need a documented improvement cycle. The system had to keep all of these steps, their status, and their history in one place.</p>
+            <h2><span>01</span>Konteks &amp; Masalah</h2>
+            <p>Setiap unit rumah sakit mengukur indikator mutu tiap periode, misalnya tingkat kepatuhan atau insiden, dan rumah sakit juga melaporkan Standar Pelayanan Minimal (SPM). Setiap indikator punya target sendiri, bisa berupa nilai minimum, maksimum, atau rentang.</p>
+            <p>Prosesnya melibatkan beberapa pihak: staf unit mengumpulkan data, validator memeriksanya, tim mutu menganalisis hasilnya, dan indikator yang tidak mencapai target harus punya siklus perbaikan yang terdokumentasi. Sistem harus menyimpan semua langkah ini, statusnya, dan riwayatnya di satu tempat.</p>
         </section>
 
         <section>
-            <h2><span>02</span>Users &amp; Roles</h2>
-            <div class="cs-table"><table><thead><tr><th>Role</th><th>Main responsibility</th></tr></thead><tbody><tr><td>Unit staff</td><td>Input numerator and denominator for each indicator, submit PDSA when assigned</td></tr><tr><td>Validator</td><td>Re-check unit reports and mark them valid or not valid</td></tr><tr><td>Quality team</td><td>Analyse results per period, assign and approve PDSA</td></tr><tr><td>Administrator</td><td>Manage indicator dictionary, units, periods, users, and access rights per role</td></tr></tbody></table></div>
+            <h2><span>02</span>Pengguna &amp; Role</h2>
+            <div class="cs-table"><table><thead><tr><th>Role</th><th>Tanggung jawab utama</th></tr></thead><tbody><tr><td>Staf unit</td><td>Mengisi numerator dan denominator tiap indikator, mengirim PDSA bila ditugaskan</td></tr><tr><td>Validator</td><td>Memeriksa ulang laporan unit dan menandainya valid atau tidak valid</td></tr><tr><td>Tim mutu</td><td>Menganalisis hasil per periode, menugaskan dan menyetujui PDSA</td></tr><tr><td>Administrator</td><td>Mengelola kamus indikator, unit, periode, user, dan hak akses per role</td></tr></tbody></table></div>
         </section>
 
         <section>
-            <h2><span>03</span>Key Requirements</h2>
+            <h2><span>03</span>Kebutuhan Utama</h2>
             <ul>
-                <li><b>Flexible targets:</b> an indicator can target a higher value, a lower value, or stay within a range; the system decides <i>achieved / not achieved</i> automatically.</li>
-                <li><b>Target snapshot:</b> the target in force when data is entered is stored with the report, so changing a target later does not rewrite history.</li>
-                <li><b>Validation step:</b> validator values are kept separately from unit values, with a valid / not-valid status.</li>
-                <li><b>Follow-up:</b> unachieved indicators are assigned a PDSA (Plan-Do-Study-Act) per quarter with the states <i>assigned &rarr; submitted &rarr; revised &rarr; approved</i>.</li>
-                <li><b>Periods &amp; deadlines:</b> reporting periods can be opened and closed, with deadlines per unit.</li>
-                <li><b>Role-based access:</b> menu access configured per role, not hard-coded.</li>
-                <li><b>Reporting:</b> dashboards, charts per indicator, and PDF export of indicator profiles and PDSA.</li>
+                <li><b>Target fleksibel:</b> indikator bisa menargetkan nilai lebih tinggi, lebih rendah, atau di dalam rentang; sistem menentukan <i>tercapai / tidak tercapai</i> secara otomatis.</li>
+                <li><b>Snapshot target:</b> target yang berlaku saat data diisi disimpan bersama laporan, sehingga perubahan target di kemudian hari tidak mengubah riwayat.</li>
+                <li><b>Tahap validasi:</b> nilai dari validator disimpan terpisah dari nilai unit, dengan status valid / tidak valid.</li>
+                <li><b>Tindak lanjut:</b> indikator yang tidak tercapai ditugaskan PDSA (Plan-Do-Study-Act) per triwulan dengan status <i>assigned &rarr; submitted &rarr; revised &rarr; approved</i>.</li>
+                <li><b>Periode &amp; tenggat:</b> periode pelaporan bisa dibuka dan ditutup, dengan tenggat per unit.</li>
+                <li><b>Akses berbasis role:</b> akses menu diatur per role, tidak di-hard-code.</li>
+                <li><b>Pelaporan:</b> dashboard, grafik per indikator, dan export PDF profil indikator serta PDSA.</li>
             </ul>
         </section>
 
         <section>
-            <h2><span>04</span>Design</h2>
-            <p>The main flow, from data entry to follow-up:</p>
-            <div class="cs-figs one"><figure><img src="img/simmutu/sequence.png" alt="Sequence: indicator reporting, validation, analysis, and PDSA follow-up"><figcaption>Sequence: indicator reporting, validation, analysis, and PDSA follow-up</figcaption></figure></div>
-            <h3>PDSA status</h3>
+            <h2><span>04</span>Desain</h2>
+            <p>Alur utama, dari pengisian data sampai tindak lanjut:</p>
+            <div class="cs-figs one"><figure><img src="img/simmutu/sequence.png" alt="Sequence: pelaporan indikator, validasi, analisis, dan tindak lanjut PDSA"><figcaption>Sequence: pelaporan indikator, validasi, analisis, dan tindak lanjut PDSA</figcaption></figure></div>
+            <h3>Status PDSA</h3>
             <div class="cs-flow"><span>ASSIGNED</span><i>&rarr;</i><span>SUBMITTED</span><i>&rarr;</i><span>REVISED</span><i>&rarr;</i><span>SUBMITTED</span><i>&rarr;</i><span class="ok">APPROVED</span></div>
-            <h3>Data model highlights</h3>
+            <h3>Poin penting data model</h3>
             <ul>
-                <li><code>indikator</code> with target type (higher / lower / range) and min&ndash;max, linked to a unit and the indicator dictionary</li>
-                <li><code>laporan_dan_analis</code> stores numerator, denominator, value, achievement, and the target snapshot</li>
-                <li><code>laporan_validator</code> stores the validator's own values for the same report</li>
-                <li><code>pdsa_assignment</code> (indicator, unit, year, quarter, status) and <code>pdsa</code> (plan, do, study, action)</li>
-                <li>Separate SPM tables for Minimum Service Standard reporting</li>
+                <li><code>indikator</code> dengan jenis target (lebih tinggi / lebih rendah / rentang) dan min&ndash;max, terhubung ke unit dan kamus indikator</li>
+                <li><code>laporan_dan_analis</code> menyimpan numerator, denominator, nilai, capaian, dan snapshot target</li>
+                <li><code>laporan_validator</code> menyimpan nilai versi validator untuk laporan yang sama</li>
+                <li><code>pdsa_assignment</code> (indikator, unit, tahun, triwulan, status) dan <code>pdsa</code> (plan, do, study, action)</li>
+                <li>Tabel SPM terpisah untuk pelaporan Standar Pelayanan Minimal</li>
             </ul>
         </section>
 
         <section>
-            <h2><span>05</span>Key Decisions</h2>
+            <h2><span>05</span>Keputusan Penting</h2>
             <ul>
-                <li>Storing the target at the time of input instead of reading the current target, so past achievement stays correct.</li>
-                <li>Keeping validator data in its own table rather than overwriting unit data, so both versions can be compared.</li>
-                <li>Modelling PDSA as an assignment with a status, so the quality team can see at a glance which units still owe a follow-up.</li>
+                <li>Menyimpan target saat data diisi, bukan membaca target terkini, sehingga capaian periode lalu tetap benar.</li>
+                <li>Menyimpan data validator di tabel sendiri, bukan menimpa data unit, sehingga kedua versi bisa dibandingkan.</li>
+                <li>Memodelkan PDSA sebagai penugasan dengan status, sehingga tim mutu langsung melihat unit mana yang belum mengirim tindak lanjut.</li>
             </ul>
         </section>
 
         <section>
-            <h2><span>06</span>Screens</h2>
-            <div class="cs-gallery"><img src="img/simmutu/simmutu1.webp" alt="SIMMUTU screen" loading="lazy"><img src="img/simmutu/simmutu2.webp" alt="SIMMUTU screen" loading="lazy"><img src="img/simmutu/simmutu3.webp" alt="SIMMUTU screen" loading="lazy"><img src="img/simmutu/simmutu4.webp" alt="SIMMUTU screen" loading="lazy"><img src="img/simmutu/simmutu5.webp" alt="SIMMUTU screen" loading="lazy"><img src="img/simmutu/simmutu6.webp" alt="SIMMUTU screen" loading="lazy"><img src="img/simmutu/simmutu7.webp" alt="SIMMUTU screen" loading="lazy"><img src="img/simmutu/simmutu8.webp" alt="SIMMUTU screen" loading="lazy"><img src="img/simmutu/simmutu9.webp" alt="SIMMUTU screen" loading="lazy"></div>
+            <h2><span>06</span>Tampilan</h2>
+            <div class="cs-gallery"><img src="img/simmutu/simmutu1.webp" alt="Tampilan SIMMUTU" loading="lazy"><img src="img/simmutu/simmutu2.webp" alt="Tampilan SIMMUTU" loading="lazy"><img src="img/simmutu/simmutu3.webp" alt="Tampilan SIMMUTU" loading="lazy"><img src="img/simmutu/simmutu4.webp" alt="Tampilan SIMMUTU" loading="lazy"><img src="img/simmutu/simmutu5.webp" alt="Tampilan SIMMUTU" loading="lazy"><img src="img/simmutu/simmutu6.webp" alt="Tampilan SIMMUTU" loading="lazy"><img src="img/simmutu/simmutu7.webp" alt="Tampilan SIMMUTU" loading="lazy"><img src="img/simmutu/simmutu8.webp" alt="Tampilan SIMMUTU" loading="lazy"><img src="img/simmutu/simmutu9.webp" alt="Tampilan SIMMUTU" loading="lazy"></div>
         </section>
 
         <div class="cs-next"><a href="project-payment-integration.html">&larr; Payment Integration</a><a href="project-risk-register.html">Risk Register &rarr;</a></div>
