@@ -254,32 +254,135 @@
     <!-- Featured Projects -->
     <section class="py-16 md:py-24 px-6 md:px-16 max-w-7xl mx-auto border-t border-white/10" id="projects">
         <h2 class="font-heading text-5xl md:text-6xl mb-4 uppercase">Proyek Pilihan</h2>
-        <p class="text-textgray mb-12 md:mb-16 max-w-xl">
+        <p class="text-textgray mb-10 md:mb-12 max-w-xl">
             Proyek pilihan, disajikan dengan cara saya mendekati setiap sistem: masalah, requirement, desain, dan hasilnya.
         </p>
 
+        <!-- Cara saya bekerja -->
+        <div class="bg-cardbg rounded-3xl border border-white/5 p-6 md:p-8">
+            <p class="text-lime font-bold uppercase tracking-widest text-xs mb-6">Cara saya bekerja</p>
+            <ol class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4">
+                <li class="flex lg:flex-col gap-4 lg:gap-3">
+                    <div class="flex items-center gap-3 shrink-0">
+                        <span class="w-11 h-11 rounded-full border border-lime/40 text-lime flex items-center justify-center"><i data-lucide="search" class="w-5 h-5"></i></span>
+                        <span class="hidden lg:block flex-1 h-px bg-white/10 "></span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-sm md:text-base"><span class="text-textgray mr-1">01</span> Pahami masalah</p>
+                        <p class="text-textgray text-xs md:text-sm mt-1">Gali kebutuhan bisnis &amp; kondisi sekarang</p>
+                    </div>
+                </li>
+                <li class="flex lg:flex-col gap-4 lg:gap-3">
+                    <div class="flex items-center gap-3 shrink-0">
+                        <span class="w-11 h-11 rounded-full border border-lime/40 text-lime flex items-center justify-center"><i data-lucide="list-checks" class="w-5 h-5"></i></span>
+                        <span class="hidden lg:block flex-1 h-px bg-white/10 "></span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-sm md:text-base"><span class="text-textgray mr-1">02</span> Requirement</p>
+                        <p class="text-textgray text-xs md:text-sm mt-1">Scope, fungsional, non-fungsional</p>
+                    </div>
+                </li>
+                <li class="flex lg:flex-col gap-4 lg:gap-3">
+                    <div class="flex items-center gap-3 shrink-0">
+                        <span class="w-11 h-11 rounded-full border border-lime/40 text-lime flex items-center justify-center"><i data-lucide="workflow" class="w-5 h-5"></i></span>
+                        <span class="hidden lg:block flex-1 h-px bg-white/10 "></span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-sm md:text-base"><span class="text-textgray mr-1">03</span> Desain sistem</p>
+                        <p class="text-textgray text-xs md:text-sm mt-1">Alur, sequence, database, API</p>
+                    </div>
+                </li>
+                <li class="flex lg:flex-col gap-4 lg:gap-3">
+                    <div class="flex items-center gap-3 shrink-0">
+                        <span class="w-11 h-11 rounded-full border border-lime/40 text-lime flex items-center justify-center"><i data-lucide="flask-conical" class="w-5 h-5"></i></span>
+                        <span class="hidden lg:block flex-1 h-px bg-white/10 "></span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-sm md:text-base"><span class="text-textgray mr-1">04</span> Test scenario</p>
+                        <p class="text-textgray text-xs md:text-sm mt-1">Kasus uji &amp; risiko</p>
+                    </div>
+                </li>
+                <li class="flex lg:flex-col gap-4 lg:gap-3">
+                    <div class="flex items-center gap-3 shrink-0">
+                        <span class="w-11 h-11 rounded-full border border-lime/40 text-lime flex items-center justify-center"><i data-lucide="handshake" class="w-5 h-5"></i></span>
+                        <span class="hidden lg:block flex-1 h-px bg-white/10 invisible"></span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-sm md:text-base"><span class="text-textgray mr-1">05</span> Serah terima</p>
+                        <p class="text-textgray text-xs md:text-sm mt-1">Kawal dev &amp; QA sampai rilis</p>
+                    </div>
+                </li>
+            </ol>
+        </div>
+
         <div class="space-y-12 md:space-y-16 mt-12 md:mt-16">
             <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center bg-cardbg rounded-3xl p-6 md:p-12 border border-white/5 group hover:border-lime/30 transition-colors">
+                <a href="https://showy.id" target="_blank" rel="noopener" class="w-full lg:w-1/2 aspect-video bg-[#111] rounded-2xl flex items-center justify-center relative overflow-hidden group-hover:scale-[1.02] transition-transform border border-white/5">
+                    <img src="img/showy/cover.jpg" alt="Showy" class="absolute inset-0 w-full h-full object-cover object-top">
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500"></div>
+                    <div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] md:text-xs font-bold text-white uppercase tracking-wider z-10 border border-white/10">
+                        Produk Live &middot; Creator Platform
+                    </div>
+                </a>
+                <div class="w-full lg:w-1/2 space-y-4 md:space-y-5">
+                    <h3 class="text-2xl md:text-3xl font-bold">SHOWY</h3>
+                    <p class="text-textgray leading-relaxed text-sm md:text-base">Platform link-in-bio untuk kreator, profesional, dan bisnis: satu halaman berisi katalog, kontak, video, dan form lead, lengkap dengan paket berlangganan dan pembayaran online.</p>
+                    <div>
+                        <div class="grid grid-cols-1 sm:grid-cols-[150px_1fr] gap-1 sm:gap-4 py-3 border-t border-white/10">
+                            <span class="uppercase font-bold text-[10px] md:text-xs tracking-wider text-white pt-0.5">Masalah</span>
+                            <span class="text-textgray text-sm md:text-base leading-relaxed">Kreator dan pelaku usaha butuh satu link untuk semua kanal yang bisa dibuat tanpa coding, sekaligus bisa menerima pembayaran.</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-[150px_1fr] gap-1 sm:gap-4 py-3 border-t border-white/10">
+                            <span class="uppercase font-bold text-[10px] md:text-xs tracking-wider text-white pt-0.5">Yang saya kerjakan</span>
+                            <span class="text-textgray text-sm md:text-base leading-relaxed">Menyusun requirement dan penyesuaian fitur, mengonfigurasi pembayaran online (QRIS &amp; Virtual Account), mengawal rilis ke production, dan menyusun panduan pengguna.</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-[150px_1fr] gap-1 sm:gap-4 py-3 border-t border-white/10">
+                            <span class="uppercase font-bold text-[10px] md:text-xs tracking-wider text-lime pt-0.5">Hasil</span>
+                            <span class="text-textgray text-sm md:text-base leading-relaxed">Live dan dapat dipakai publik di showy.id.</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[10px] md:text-xs font-bold uppercase tracking-wider text-white/80">Requirement</span><span class="px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[10px] md:text-xs font-bold uppercase tracking-wider text-white/80">Payment Integration</span><span class="px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[10px] md:text-xs font-bold uppercase tracking-wider text-white/80">Release Production</span><span class="px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[10px] md:text-xs font-bold uppercase tracking-wider text-white/80">User Guide</span></div>
+                    <div class="border-t border-white/10 pt-4 flex flex-wrap items-end justify-between gap-4">
+                        <div class="text-xs md:text-sm space-y-1">
+                            <p><span class="text-white uppercase font-bold text-[10px] md:text-xs tracking-wider mr-2">Peran</span><span class="text-textgray">Product &amp; System Analyst</span></p>
+                            <p><span class="text-white uppercase font-bold text-[10px] md:text-xs tracking-wider mr-2">Jenis</span><span class="text-textgray">Side project, produk live</span></p>
+                        </div>
+                        <a href="https://showy.id" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-lime font-bold hover:underline underline-offset-4 decoration-2 text-sm md:text-base">
+                            LIHAT PRODUK <i data-lucide="arrow-up-right" class="w-4 h-4 md:w-5 md:h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col lg:flex-row lg:flex-row-reverse gap-8 lg:gap-12 items-center bg-cardbg rounded-3xl p-6 md:p-12 border border-white/5 group hover:border-lime/30 transition-colors">
                 <a href="project-payment-integration.html" class="w-full lg:w-1/2 aspect-video bg-[#111] rounded-2xl flex items-center justify-center relative overflow-hidden group-hover:scale-[1.02] transition-transform border border-white/5">
-                    <img src="img/payment/cover.webp" alt="Payment Integration: Qris &Amp; Va" class="absolute inset-0 w-full h-full object-cover">
+                    <img src="img/payment/cover.webp" alt="Payment Integration: Qris &Amp; Va" class="absolute inset-0 w-full h-full object-cover ">
                     <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500"></div>
                     <div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] md:text-xs font-bold text-white uppercase tracking-wider z-10 border border-white/10">
                         Studi Kasus Konsep &middot; Fintech
                     </div>
                 </a>
-                <div class="w-full lg:w-1/2 space-y-4 md:space-y-6">
+                <div class="w-full lg:w-1/2 space-y-4 md:space-y-5">
                     <h3 class="text-2xl md:text-3xl font-bold">PAYMENT INTEGRATION: QRIS &amp; VA</h3>
-                    <p class="text-textgray leading-relaxed text-sm md:text-base">
-                        Mengganti konfirmasi transfer manual dengan pembayaran QRIS dan Virtual Account otomatis: requirement, sequence diagram, spesifikasi API, test scenario, dan risiko.
-                    </p>
-                    <div class="border-t border-white/10 pt-4">
-                        <div class="flex justify-between gap-4 text-xs md:text-sm mb-3 md:mb-4">
-                            <span class="text-white uppercase font-bold text-[10px] md:text-xs tracking-wider">Peran</span>
-                            <span class="text-textgray text-right">System Analyst</span>
+                    <div>
+                        <div class="grid grid-cols-1 sm:grid-cols-[150px_1fr] gap-1 sm:gap-4 py-3 border-t border-white/10">
+                            <span class="uppercase font-bold text-[10px] md:text-xs tracking-wider text-white pt-0.5">Masalah</span>
+                            <span class="text-textgray text-sm md:text-base leading-relaxed">Pembayaran lewat transfer manual: pesanan menunggu berjam-jam, admin mencocokkan bukti transfer satu per satu.</span>
                         </div>
-                        <div class="flex justify-between gap-4 text-xs md:text-sm mb-4 md:mb-6">
-                            <span class="text-white uppercase font-bold text-[10px] md:text-xs tracking-wider">Output</span>
-                            <span class="text-textgray text-right">Sequence diagram, spesifikasi API, test scenario</span>
+                        <div class="grid grid-cols-1 sm:grid-cols-[150px_1fr] gap-1 sm:gap-4 py-3 border-t border-white/10">
+                            <span class="uppercase font-bold text-[10px] md:text-xs tracking-wider text-white pt-0.5">Yang saya kerjakan</span>
+                            <span class="text-textgray text-sm md:text-base leading-relaxed">Menentukan scope, requirement fungsional &amp; non-fungsional, sequence diagram QRIS dan VA, spesifikasi API, serta test scenario.</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-[150px_1fr] gap-1 sm:gap-4 py-3 border-t border-white/10">
+                            <span class="uppercase font-bold text-[10px] md:text-xs tracking-wider text-lime pt-0.5">Hasil</span>
+                            <span class="text-textgray text-sm md:text-base leading-relaxed">Rancangan pesanan berubah Paid otomatis lewat callback, termasuk cek status bila callback tidak datang.</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[10px] md:text-xs font-bold uppercase tracking-wider text-white/80">Requirement</span><span class="px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[10px] md:text-xs font-bold uppercase tracking-wider text-white/80">Sequence Diagram</span><span class="px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[10px] md:text-xs font-bold uppercase tracking-wider text-white/80">API Spec</span><span class="px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[10px] md:text-xs font-bold uppercase tracking-wider text-white/80">Test Scenario</span></div>
+                    <div class="border-t border-white/10 pt-4 flex flex-wrap items-end justify-between gap-4">
+                        <div class="text-xs md:text-sm space-y-1">
+                            <p><span class="text-white uppercase font-bold text-[10px] md:text-xs tracking-wider mr-2">Peran</span><span class="text-textgray">System Analyst</span></p>
+                            <p><span class="text-white uppercase font-bold text-[10px] md:text-xs tracking-wider mr-2">Jenis</span><span class="text-textgray">Konsep / inisiatif pribadi</span></p>
                         </div>
                         <a href="project-payment-integration.html" class="inline-flex items-center gap-2 text-lime font-bold hover:underline underline-offset-4 decoration-2 text-sm md:text-base">
                             BACA STUDI KASUS <i data-lucide="arrow-up-right" class="w-4 h-4 md:w-5 md:h-5"></i>
@@ -293,22 +396,30 @@
                     <img src="img/simmutu/simmutu1.webp" alt="Simmutu" class="absolute inset-0 w-full h-full object-cover object-top">
                     <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500"></div>
                     <div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] md:text-xs font-bold text-white uppercase tracking-wider z-10 border border-white/10">
-                        Mutu Rumah Sakit
+                        Mutu Rumah Sakit &middot; RS Azra
                     </div>
                 </a>
-                <div class="w-full lg:w-1/2 space-y-4 md:space-y-6">
+                <div class="w-full lg:w-1/2 space-y-4 md:space-y-5">
                     <h3 class="text-2xl md:text-3xl font-bold">SIMMUTU</h3>
-                    <p class="text-textgray leading-relaxed text-sm md:text-base">
-                        Pelaporan indikator mutu unit rumah sakit: target fleksibel, validasi, analisis per periode, dan tindak lanjut PDSA dengan status persetujuan.
-                    </p>
-                    <div class="border-t border-white/10 pt-4">
-                        <div class="flex justify-between gap-4 text-xs md:text-sm mb-3 md:mb-4">
-                            <span class="text-white uppercase font-bold text-[10px] md:text-xs tracking-wider">Peran</span>
-                            <span class="text-textgray text-right">System Design &amp; Fullstack</span>
+                    <div>
+                        <div class="grid grid-cols-1 sm:grid-cols-[150px_1fr] gap-1 sm:gap-4 py-3 border-t border-white/10">
+                            <span class="uppercase font-bold text-[10px] md:text-xs tracking-wider text-white pt-0.5">Masalah</span>
+                            <span class="text-textgray text-sm md:text-base leading-relaxed">Pelaporan indikator mutu melibatkan staf unit, validator, dan tim mutu, tetapi belum ada satu tempat untuk status dan riwayatnya.</span>
                         </div>
-                        <div class="flex justify-between gap-4 text-xs md:text-sm mb-4 md:mb-6">
-                            <span class="text-white uppercase font-bold text-[10px] md:text-xs tracking-wider">Tech</span>
-                            <span class="text-textgray text-right">Laravel, TailwindCSS, MySQL</span>
+                        <div class="grid grid-cols-1 sm:grid-cols-[150px_1fr] gap-1 sm:gap-4 py-3 border-t border-white/10">
+                            <span class="uppercase font-bold text-[10px] md:text-xs tracking-wider text-white pt-0.5">Yang saya kerjakan</span>
+                            <span class="text-textgray text-sm md:text-base leading-relaxed">Memetakan alur kerja dan role, merancang database (snapshot target, validasi terpisah, status PDSA), lalu membangun aplikasinya.</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-[150px_1fr] gap-1 sm:gap-4 py-3 border-t border-white/10">
+                            <span class="uppercase font-bold text-[10px] md:text-xs tracking-wider text-lime pt-0.5">Hasil</span>
+                            <span class="text-textgray text-sm md:text-base leading-relaxed">Pengisian, validasi, analisis per periode, dan tindak lanjut PDSA berjalan dalam satu sistem.</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[10px] md:text-xs font-bold uppercase tracking-wider text-white/80">Alur Kerja</span><span class="px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[10px] md:text-xs font-bold uppercase tracking-wider text-white/80">Role &amp; Akses</span><span class="px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[10px] md:text-xs font-bold uppercase tracking-wider text-white/80">Desain Database</span><span class="px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[10px] md:text-xs font-bold uppercase tracking-wider text-white/80">Aplikasi</span></div>
+                    <div class="border-t border-white/10 pt-4 flex flex-wrap items-end justify-between gap-4">
+                        <div class="text-xs md:text-sm space-y-1">
+                            <p><span class="text-white uppercase font-bold text-[10px] md:text-xs tracking-wider mr-2">Peran</span><span class="text-textgray">System Design &amp; Fullstack</span></p>
+                            <p><span class="text-white uppercase font-bold text-[10px] md:text-xs tracking-wider mr-2">Tech</span><span class="text-textgray">Laravel, TailwindCSS, MySQL</span></p>
                         </div>
                         <a href="project-simmutu.html" class="inline-flex items-center gap-2 text-lime font-bold hover:underline underline-offset-4 decoration-2 text-sm md:text-base">
                             BACA STUDI KASUS <i data-lucide="arrow-up-right" class="w-4 h-4 md:w-5 md:h-5"></i>
@@ -316,123 +427,105 @@
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center bg-cardbg rounded-3xl p-6 md:p-12 border border-white/5 group hover:border-lime/30 transition-colors">
-                <a href="project-risk-register.html" class="w-full lg:w-1/2 aspect-video bg-[#111] rounded-2xl flex items-center justify-center relative overflow-hidden group-hover:scale-[1.02] transition-transform border border-white/5">
-                    <img src="img/Risk-Register/1.webp" alt="Risk Register" class="absolute inset-0 w-full h-full object-cover">
+        <h3 class="font-heading text-3xl md:text-4xl uppercase mt-16 md:mt-20 mb-6 md:mb-8">Proyek Lainnya</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            <a href="project-risk-register.html" class="flex flex-col bg-cardbg rounded-3xl p-5 md:p-6 border border-white/5 group hover:border-lime/30 transition-colors">
+                <div class="aspect-video bg-[#111] rounded-2xl relative overflow-hidden border border-white/5">
+                    <img src="img/Risk-Register/1.webp" alt="Risk Register" class="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500">
                     <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500"></div>
-                    <div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] md:text-xs font-bold text-white uppercase tracking-wider z-10 border border-white/10">
-                        Manajemen Risiko
-                    </div>
-                </a>
-                <div class="w-full lg:w-1/2 space-y-4 md:space-y-6">
-                    <h3 class="text-2xl md:text-3xl font-bold">RISK REGISTER</h3>
-                    <p class="text-textgray leading-relaxed text-sm md:text-base">
-                        Risk register berbasis spreadsheet yang diterjemahkan menjadi sistem empat tahap: identifikasi, analisis dan penilaian, rencana penanganan, dan evaluasi risiko residual.
-                    </p>
-                    <div class="border-t border-white/10 pt-4">
-                        <div class="flex justify-between gap-4 text-xs md:text-sm mb-3 md:mb-4">
-                            <span class="text-white uppercase font-bold text-[10px] md:text-xs tracking-wider">Peran</span>
-                            <span class="text-textgray text-right">System Design &amp; Fullstack</span>
-                        </div>
-                        <div class="flex justify-between gap-4 text-xs md:text-sm mb-4 md:mb-6">
-                            <span class="text-white uppercase font-bold text-[10px] md:text-xs tracking-wider">Tech</span>
-                            <span class="text-textgray text-right">Laravel, MySQL, PHP</span>
-                        </div>
-                        <a href="project-risk-register.html" class="inline-flex items-center gap-2 text-lime font-bold hover:underline underline-offset-4 decoration-2 text-sm md:text-base">
-                            BACA STUDI KASUS <i data-lucide="arrow-up-right" class="w-4 h-4 md:w-5 md:h-5"></i>
-                        </a>
-                    </div>
+                    <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-white uppercase tracking-wider border border-white/10">Manajemen Risiko</div>
                 </div>
-            </div>
+                <h4 class="text-xl md:text-2xl font-bold mt-5">RISK REGISTER</h4>
+                <div class="flex-1">
+                        <div class="grid grid-cols-1 sm:grid-cols-[150px_1fr] gap-1 sm:gap-4 py-3 border-t border-white/10">
+                            <span class="uppercase font-bold text-[10px] md:text-xs tracking-wider text-white pt-0.5">Masalah</span>
+                            <span class="text-textgray text-sm md:text-base leading-relaxed">Risk register di spreadsheet besar yang mencampur empat kegiatan berbeda waktu.</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-[150px_1fr] gap-1 sm:gap-4 py-3 border-t border-white/10">
+                            <span class="uppercase font-bold text-[10px] md:text-xs tracking-wider text-lime pt-0.5">Hasil</span>
+                            <span class="text-textgray text-sm md:text-base leading-relaxed">Dipecah jadi 4 tahap proses dengan penilaian seragam antar-unit, skor residual, dan laporan PDF.</span>
+                        </div>
+                </div>
+                <div class="flex flex-wrap gap-2 mt-3"><span class="px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[10px] md:text-xs font-bold uppercase tracking-wider text-white/80">Analisis Proses</span><span class="px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[10px] md:text-xs font-bold uppercase tracking-wider text-white/80">Desain Database</span><span class="px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[10px] md:text-xs font-bold uppercase tracking-wider text-white/80">Laporan PDF</span></div>
+                <div class="border-t border-white/10 mt-4 pt-4 flex items-center justify-between gap-4 text-xs md:text-sm">
+                    <span class="text-textgray">Laravel, MySQL, PHP</span>
+                    <span class="inline-flex items-center gap-2 text-lime font-bold">STUDI KASUS <i data-lucide="arrow-up-right" class="w-4 h-4"></i></span>
+                </div>
+            </a>
 
-            <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center bg-cardbg rounded-3xl p-6 md:p-12 border border-white/5 group hover:border-lime/30 transition-colors">
-                <a href="project-monitoring-suhu.html" class="w-full lg:w-1/2 aspect-video bg-[#111] rounded-2xl flex items-center justify-center relative overflow-hidden group-hover:scale-[1.02] transition-transform border border-white/5">
-                    <img src="img/monitoring-suhu/monitoring-suhu-1.webp" alt="Monitoring Suhu" class="absolute inset-0 w-full h-full object-cover">
+            <a href="project-monitoring-suhu.html" class="flex flex-col bg-cardbg rounded-3xl p-5 md:p-6 border border-white/5 group hover:border-lime/30 transition-colors">
+                <div class="aspect-video bg-[#111] rounded-2xl relative overflow-hidden border border-white/5">
+                    <img src="img/monitoring-suhu/monitoring-suhu-1.webp" alt="Monitoring Suhu" class="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500">
                     <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500"></div>
-                    <div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] md:text-xs font-bold text-white uppercase tracking-wider z-10 border border-white/10">
-                        Pencatatan Data
-                    </div>
-                </a>
-                <div class="w-full lg:w-1/2 space-y-4 md:space-y-6">
-                    <h3 class="text-2xl md:text-3xl font-bold">MONITORING SUHU</h3>
-                    <p class="text-textgray leading-relaxed text-sm md:text-base">
-                        Pencatatan suhu dan kelembapan per titik pantau, dengan dashboard yang menandai nilai di luar rentang standar tiap parameter.
-                    </p>
-                    <div class="border-t border-white/10 pt-4">
-                        <div class="flex justify-between gap-4 text-xs md:text-sm mb-3 md:mb-4">
-                            <span class="text-white uppercase font-bold text-[10px] md:text-xs tracking-wider">Peran</span>
-                            <span class="text-textgray text-right">System Design &amp; Fullstack</span>
-                        </div>
-                        <div class="flex justify-between gap-4 text-xs md:text-sm mb-4 md:mb-6">
-                            <span class="text-white uppercase font-bold text-[10px] md:text-xs tracking-wider">Tech</span>
-                            <span class="text-textgray text-right">Laravel, PHP, MySQL</span>
-                        </div>
-                        <a href="project-monitoring-suhu.html" class="inline-flex items-center gap-2 text-lime font-bold hover:underline underline-offset-4 decoration-2 text-sm md:text-base">
-                            BACA STUDI KASUS <i data-lucide="arrow-up-right" class="w-4 h-4 md:w-5 md:h-5"></i>
-                        </a>
-                    </div>
+                    <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-white uppercase tracking-wider border border-white/10">Pencatatan Data</div>
                 </div>
-            </div>
+                <h4 class="text-xl md:text-2xl font-bold mt-5">MONITORING SUHU</h4>
+                <div class="flex-1">
+                        <div class="grid grid-cols-1 sm:grid-cols-[150px_1fr] gap-1 sm:gap-4 py-3 border-t border-white/10">
+                            <span class="uppercase font-bold text-[10px] md:text-xs tracking-wider text-white pt-0.5">Masalah</span>
+                            <span class="text-textgray text-sm md:text-base leading-relaxed">Atasan sulit melihat hasil ukur suhu dan kelembapan mana yang di luar standar per unit dan lokasi.</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-[150px_1fr] gap-1 sm:gap-4 py-3 border-t border-white/10">
+                            <span class="uppercase font-bold text-[10px] md:text-xs tracking-wider text-lime pt-0.5">Hasil</span>
+                            <span class="text-textgray text-sm md:text-base leading-relaxed">Dashboard menandai nilai di luar standar; parameter baru bisa ditambah tanpa mengubah struktur tabel.</span>
+                        </div>
+                </div>
+                <div class="flex flex-wrap gap-2 mt-3"><span class="px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[10px] md:text-xs font-bold uppercase tracking-wider text-white/80">Data Model</span><span class="px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[10px] md:text-xs font-bold uppercase tracking-wider text-white/80">Dashboard</span><span class="px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[10px] md:text-xs font-bold uppercase tracking-wider text-white/80">Laporan PDF</span></div>
+                <div class="border-t border-white/10 mt-4 pt-4 flex items-center justify-between gap-4 text-xs md:text-sm">
+                    <span class="text-textgray">Laravel, PHP, MySQL</span>
+                    <span class="inline-flex items-center gap-2 text-lime font-bold">STUDI KASUS <i data-lucide="arrow-up-right" class="w-4 h-4"></i></span>
+                </div>
+            </a>
 
-            <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center bg-cardbg rounded-3xl p-6 md:p-12 border border-white/5 group hover:border-lime/30 transition-colors">
-                <a href="project-ocean-space.html" class="w-full lg:w-1/2 aspect-video bg-[#111] rounded-2xl flex items-center justify-center relative overflow-hidden group-hover:scale-[1.02] transition-transform border border-white/5">
-                    <img src="img/ocean-space/ocean_space.webp" alt="Ocean Space" class="absolute inset-0 w-full h-full object-cover">
+            <a href="project-ocean-space.html" class="flex flex-col bg-cardbg rounded-3xl p-5 md:p-6 border border-white/5 group hover:border-lime/30 transition-colors">
+                <div class="aspect-video bg-[#111] rounded-2xl relative overflow-hidden border border-white/5">
+                    <img src="img/ocean-space/ocean_space.webp" alt="Ocean Space" class="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500">
                     <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500"></div>
-                    <div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] md:text-xs font-bold text-white uppercase tracking-wider z-10 border border-white/10">
-                        Skripsi
-                    </div>
-                </a>
-                <div class="w-full lg:w-1/2 space-y-4 md:space-y-6">
-                    <h3 class="text-2xl md:text-3xl font-bold">OCEAN SPACE</h3>
-                    <p class="text-textgray leading-relaxed text-sm md:text-base">
-                        E-commerce untuk usaha ikan dengan pembayaran Midtrans dan sisi admin untuk produk, pesanan, pembelian stok, dan kasir, dirancang dengan use case, activity, dan class diagram.
-                    </p>
-                    <div class="border-t border-white/10 pt-4">
-                        <div class="flex justify-between gap-4 text-xs md:text-sm mb-3 md:mb-4">
-                            <span class="text-white uppercase font-bold text-[10px] md:text-xs tracking-wider">Peran</span>
-                            <span class="text-textgray text-right">Analisis, Desain &amp; Fullstack</span>
-                        </div>
-                        <div class="flex justify-between gap-4 text-xs md:text-sm mb-4 md:mb-6">
-                            <span class="text-white uppercase font-bold text-[10px] md:text-xs tracking-wider">Tech</span>
-                            <span class="text-textgray text-right">Laravel, MySQL, Midtrans</span>
-                        </div>
-                        <a href="project-ocean-space.html" class="inline-flex items-center gap-2 text-lime font-bold hover:underline underline-offset-4 decoration-2 text-sm md:text-base">
-                            BACA STUDI KASUS <i data-lucide="arrow-up-right" class="w-4 h-4 md:w-5 md:h-5"></i>
-                        </a>
-                    </div>
+                    <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-white uppercase tracking-wider border border-white/10">Skripsi</div>
                 </div>
-            </div>
+                <h4 class="text-xl md:text-2xl font-bold mt-5">OCEAN SPACE</h4>
+                <div class="flex-1">
+                        <div class="grid grid-cols-1 sm:grid-cols-[150px_1fr] gap-1 sm:gap-4 py-3 border-t border-white/10">
+                            <span class="uppercase font-bold text-[10px] md:text-xs tracking-wider text-white pt-0.5">Masalah</span>
+                            <span class="text-textgray text-sm md:text-base leading-relaxed">Usaha ikan butuh toko online dengan pembayaran digital, stok, dan kasir dalam satu sistem.</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-[150px_1fr] gap-1 sm:gap-4 py-3 border-t border-white/10">
+                            <span class="uppercase font-bold text-[10px] md:text-xs tracking-wider text-lime pt-0.5">Hasil</span>
+                            <span class="text-textgray text-sm md:text-base leading-relaxed">E-commerce dengan pembayaran Midtrans dan sisi admin, dirancang dengan use case, activity, dan class diagram.</span>
+                        </div>
+                </div>
+                <div class="flex flex-wrap gap-2 mt-3"><span class="px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[10px] md:text-xs font-bold uppercase tracking-wider text-white/80">Use Case</span><span class="px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[10px] md:text-xs font-bold uppercase tracking-wider text-white/80">Activity</span><span class="px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[10px] md:text-xs font-bold uppercase tracking-wider text-white/80">Class Diagram</span></div>
+                <div class="border-t border-white/10 mt-4 pt-4 flex items-center justify-between gap-4 text-xs md:text-sm">
+                    <span class="text-textgray">Laravel, MySQL, Midtrans</span>
+                    <span class="inline-flex items-center gap-2 text-lime font-bold">STUDI KASUS <i data-lucide="arrow-up-right" class="w-4 h-4"></i></span>
+                </div>
+            </a>
 
-            <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center bg-cardbg rounded-3xl p-6 md:p-12 border border-white/5 group hover:border-lime/30 transition-colors">
-                <a href="project-sct-ecommerce.html" class="w-full lg:w-1/2 aspect-video bg-[#111] rounded-2xl flex items-center justify-center relative overflow-hidden group-hover:scale-[1.02] transition-transform border border-white/5">
-                    <img src="img/sct-ecommerce/sctecommerce1.webp" alt="Sct E-Commerce" class="absolute inset-0 w-full h-full object-cover">
+            <a href="project-sct-ecommerce.html" class="flex flex-col bg-cardbg rounded-3xl p-5 md:p-6 border border-white/5 group hover:border-lime/30 transition-colors">
+                <div class="aspect-video bg-[#111] rounded-2xl relative overflow-hidden border border-white/5">
+                    <img src="img/sct-ecommerce/sctecommerce1.webp" alt="Sct E-Commerce" class="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500">
                     <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500"></div>
-                    <div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] md:text-xs font-bold text-white uppercase tracking-wider z-10 border border-white/10">
-                        Proyek Klien
-                    </div>
-                </a>
-                <div class="w-full lg:w-1/2 space-y-4 md:space-y-6">
-                    <h3 class="text-2xl md:text-3xl font-bold">SCT E-COMMERCE</h3>
-                    <p class="text-textgray leading-relaxed text-sm md:text-base">
-                        E-commerce B2B untuk PT Surya Citra Teknologi, dipetakan dengan use case, class, dan sequence diagram sebelum development.
-                    </p>
-                    <div class="border-t border-white/10 pt-4">
-                        <div class="flex justify-between gap-4 text-xs md:text-sm mb-3 md:mb-4">
-                            <span class="text-white uppercase font-bold text-[10px] md:text-xs tracking-wider">Peran</span>
-                            <span class="text-textgray text-right">System Design &amp; Backend</span>
-                        </div>
-                        <div class="flex justify-between gap-4 text-xs md:text-sm mb-4 md:mb-6">
-                            <span class="text-white uppercase font-bold text-[10px] md:text-xs tracking-wider">Tech</span>
-                            <span class="text-textgray text-right">Laravel, PHP, MySQL</span>
-                        </div>
-                        <a href="project-sct-ecommerce.html" class="inline-flex items-center gap-2 text-lime font-bold hover:underline underline-offset-4 decoration-2 text-sm md:text-base">
-                            BACA STUDI KASUS <i data-lucide="arrow-up-right" class="w-4 h-4 md:w-5 md:h-5"></i>
-                        </a>
-                    </div>
+                    <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-white uppercase tracking-wider border border-white/10">Proyek Klien</div>
                 </div>
-            </div>
-
+                <h4 class="text-xl md:text-2xl font-bold mt-5">SCT E-COMMERCE</h4>
+                <div class="flex-1">
+                        <div class="grid grid-cols-1 sm:grid-cols-[150px_1fr] gap-1 sm:gap-4 py-3 border-t border-white/10">
+                            <span class="uppercase font-bold text-[10px] md:text-xs tracking-wider text-white pt-0.5">Masalah</span>
+                            <span class="text-textgray text-sm md:text-base leading-relaxed">Klien B2B butuh toko online untuk katalog, pemesanan, dan pembayaran.</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-[150px_1fr] gap-1 sm:gap-4 py-3 border-t border-white/10">
+                            <span class="uppercase font-bold text-[10px] md:text-xs tracking-wider text-lime pt-0.5">Hasil</span>
+                            <span class="text-textgray text-sm md:text-base leading-relaxed">Aktor, struktur data, dan interaksi utama dipetakan sebelum backend dibangun.</span>
+                        </div>
+                </div>
+                <div class="flex flex-wrap gap-2 mt-3"><span class="px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[10px] md:text-xs font-bold uppercase tracking-wider text-white/80">Use Case</span><span class="px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[10px] md:text-xs font-bold uppercase tracking-wider text-white/80">Class</span><span class="px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[10px] md:text-xs font-bold uppercase tracking-wider text-white/80">Sequence</span></div>
+                <div class="border-t border-white/10 mt-4 pt-4 flex items-center justify-between gap-4 text-xs md:text-sm">
+                    <span class="text-textgray">Laravel, PHP, MySQL</span>
+                    <span class="inline-flex items-center gap-2 text-lime font-bold">STUDI KASUS <i data-lucide="arrow-up-right" class="w-4 h-4"></i></span>
+                </div>
+            </a>
         </div>
     </section>
 
